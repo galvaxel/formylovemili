@@ -92,6 +92,8 @@ body {
 
 .contenido-recuerdo {
     overflow: hidden;
+    transition: opacity 0.2s ease;
+
 }
 
 #ayer {
@@ -104,4 +106,39 @@ body {
 
 .hoy {
     z-index: 10;
+}
+
+.contenido-recuerdo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#hoy img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#hoy p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#timer {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2rem;
+    font-weight: bold;
 }
