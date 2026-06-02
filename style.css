@@ -334,3 +334,56 @@ body.modo-hoy #boton-home {
     flex-shrink: 0;
     pointer-events: none;
 }
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 20px;
+        overflow: hidden;
+    }
+
+    .carrusel {
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .tarjeta {
+        width: 82vw !important;
+        min-height: 320px;
+
+        padding: 16px;
+    }
+
+    #hoy {
+        width: 92vw !important;
+        height: 78vh;
+    }
+
+    .contenido-recuerdo {
+        width: 100%;
+        height: 220px;
+    }
+
+    .contenido-recuerdo img,
+    video,
+    iframe {
+        width: 100%;
+    }
+
+    iframe {
+        min-height: 152px;
+    }
+
+    #boton-home {
+        right: 14px;
+        bottom: 14px;
+
+        padding: 10px 14px;
+
+        font-size: 0.9rem;
+    }
+
+    .espaciador {
+        width: 45vw;
+    }
+}
