@@ -6,40 +6,51 @@ body {
     align-items: flex-start;
     padding-top: 80px;
     background-color: #f5f5f5;
+    overflow-y: visible;
+
 }
 
 .carrusel {
     display: flex;
     flex-wrap: nowrap;
     gap: 30px;
+
     overflow-x: auto;
+    overflow-y: visible;
+
+    scroll-snap-type: none;
+
+    scrollbar-width: none;
+
     padding: 40px;
-    align-items: flex-start;
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none;
 }
 
 .tarjeta {
-    width: 250px;
-    height: 350px;
+    width: 420px;
+    min-height: 350px;
     flex-shrink: 0;
 
     border: 3px solid black;
     border-radius: 20px;
 
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
-
-    font-size: 2rem;
-    font-weight: bold;
+    align-items: center;
 
     background-color: white;
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
     padding: 20px;
+
     cursor: pointer;
     transition: 0.3s;
 
+    scroll-snap-align: center;
 }
 
 .tarjeta:hover {
@@ -47,16 +58,16 @@ body {
 }
 
 .tarjeta h2 {
-    margin-top: 30px;
-}
-
-.tarjeta p {
     margin-top: 20px;
+    margin-bottom: 10px;
+
+    font-size: 1rem;
+    text-align: center;
 }
 
 .contenido-recuerdo {
-    width: 80%;
-    height: 180px;
+    width: 90%;
+    height: 230px;
 
     border: 2px dashed #ccc;
     border-radius: 15px;
@@ -65,70 +76,59 @@ body {
     justify-content: center;
     align-items: center;
 
-    margin-top: 20px;
-}
+    overflow: hidden;
 
+    margin-top: 10px;
 
-.hoy {
-    transform: scale(1.1);
-    border-width: 5px;
-}
-
-.hoy .contenido-recuerdo {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.contenido-recuerdo h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    transition: opacity 0.2s ease;
 }
 
 .contenido-recuerdo p {
     font-size: 1rem;
     text-align: center;
-    margin: 5px 0;
-}
-
-.contenido-recuerdo {
-    overflow: hidden;
-    transition: opacity 0.2s ease;
-
-}
-
-#ayer {
-    opacity: 0.75;
-}
-
-#proximo {
-    opacity: 0.75;
-}
-
-.hoy {
-    z-index: 10;
+    margin: 5px;
 }
 
 .contenido-recuerdo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
     border-radius: 15px;
+}
+
+#ayer {
+    opacity: 0.75;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#hoy {
+    padding: 0;
+    width: 550px;
+    height: 700px;
+}
+
+#hoy .contenido-recuerdo {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    margin: 0;
 }
 
 #hoy img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-}
 
-#hoy p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-    font-size: 1.2rem;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 #timer {
@@ -141,4 +141,196 @@ body {
 
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+iframe {
+    width: 100%;
+    border: none;
+
+    border-radius: 15px;
+}
+
+.contenido-combo {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-top: 10px;
+}
+
+.contenido-combo img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.contenido-combo video {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.contenido-combo iframe {
+    width: 100%;
+    min-height: 152px;
+
+    border: none;
+    border-radius: 15px;
+}
+
+.contenido-combo p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+.contenido-combo iframe {
+    width: 100%;
+    height: 152px;
+
+    border: none;
+    border-radius: 15px;
+
+    display: block;
+}
+
+.contenido-combo img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+    border-radius: 15px;
+
+    display: block;
+}
+
+.contenido-combo iframe {
+    height: 152px;
+}
+
+.espaciador {
+    width: 1000px;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.carrusel {
+    cursor: grab;
+    user-select: none;
+
+}
+
+.carrusel.arrastrando {
+    cursor: grabbing;
+}
+
+.carrusel {
+    cursor: grab;
+    user-select: none;
+}
+
+.carrusel.arrastrando {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+/* MODOS DE VISUALIZACIÓN */
+
+.tarjeta {
+    transition:
+        transform 0.28s ease,
+        opacity 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* MODO HOY: HOY gigante y costados más chicos */
+body.modo-hoy #hoy {
+    width: 500px;
+    height: 700px;
+    padding: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.modo-hoy .tarjeta:not(#hoy) {
+    width: 360px;
+    min-height: 350px;
+    transform: scale(0.82);
+    opacity: 0.75;
+}
+
+/* MODO DESLIZANDO: todas las tarjetas se emparejan */
+body.modo-deslizando .tarjeta {
+    width: 400px;
+    min-height: 350px;
+    height: auto;
+    padding: 20px;
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* HOY abierto ocupa toda la tarjeta solo en modo HOY */
+body.modo-hoy #hoy .contenido-recuerdo {
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+}
+
+/* HOY en modo deslizando vuelve a comportarse como tarjeta normal */
+body.modo-deslizando #hoy .contenido-recuerdo {
+    width: 90%;
+    height: 230px;
+    border: 2px dashed #ccc;
+    margin-top: 10px;
+}
+
+/* Botón volver a HOY */
+#boton-home {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 999;
+
+    border: 2px solid black;
+    border-radius: 999px;
+
+    background: white;
+    padding: 12px 18px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+
+    transition: 0.25s ease;
+}
+
+#boton-home:hover {
+    transform: scale(1.06);
+}
+
+body.modo-hoy #boton-home {
+    opacity: 0.45;
+}
+
+.espaciador {
+    width: 700px;
+    flex-shrink: 0;
+    pointer-events: none;
 }
