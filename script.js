@@ -2,9 +2,14 @@
 
 const carrusel = document.getElementById("carrusel");
 
-const FECHA_INICIO = new Date(2026, 5, 12, 19, 3, 0);
+const MODO_PRUEBA = false;
 
-const indiceHoyGuardado = Number(localStorage.getItem("hoyAbierto"));
+const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
+const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
+
+const FECHA_INICIO = MODO_PRUEBA ? FECHA_INICIO_PRUEBA : FECHA_INICIO_REAL;
+
+const indiceHoyGuardado = localStorage.getItem("hoyAbierto");
 
 function obtenerIndiceDelDia() {
     const ahora = new Date();
@@ -260,7 +265,7 @@ function generarTarjetas() {
 
     activarClicks();
 
-    if (indiceHoyGuardado === indiceHoy) {
+    if (indiceHoyGuardado !== null && Number(indiceHoyGuardado) === indiceHoy) {
         const hoy = document.getElementById("hoy");
 
         if (hoy) {
@@ -338,20 +343,30 @@ function mostrarRecuerdo(tarjeta, indice) {
     let contenidoHTML = "";
 
     if (recuerdo.tipo === "combo") {
-        const contenido = recuerdo.contenido
-            .map(item => renderContenido(item))
-            .join("");
+    const contenido = recuerdo.contenido
+        .map(item => renderContenido(item))
+        .join("");
 
+    const titulo = tarjeta.querySelector("h2")?.innerText || "";
+
+    if (tarjeta.id === "hoy") {
         tarjeta.innerHTML = `
-            <h2>${tarjeta.querySelector("h2")?.innerText || ""}</h2>
+            <div class="contenido-combo contenido-combo-hoy">
+                ${contenido}
+            </div>
+        `;
+    } else {
+        tarjeta.innerHTML = `
+            <h2>${titulo}</h2>
 
             <div class="contenido-combo">
                 ${contenido}
             </div>
         `;
-
-        return;
     }
+
+    return;
+}
 
     if (recuerdo.tipo === "imagen") {
         contenidoHTML = `
@@ -490,7 +505,17 @@ function tiempoHastaDesbloqueo() {
 function iniciarTimer() {
     const timer = document.getElementById("timer");
 
+    let indiceAnterior = obtenerIndiceDelDia();
+
     function actualizar() {
+        const indiceActual = obtenerIndiceDelDia();
+
+        if (indiceActual !== indiceAnterior) {
+            localStorage.removeItem("hoyAbierto");
+            generarTarjetas();
+            return;
+        }
+
         const ms = tiempoHastaDesbloqueo();
 
         const horas = Math.floor(ms / (1000 * 60 * 60));
