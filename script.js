@@ -9,6 +9,25 @@ const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
 
 const FECHA_INICIO = MODO_PRUEBA ? FECHA_INICIO_PRUEBA : FECHA_INICIO_REAL;
 
+// FIREBASE
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAw0QwhQtwgXawEkeb550FtsgSxS-dABGo",
+    authDomain: "mili-te-amomucho.firebaseapp.com",
+    databaseURL: "https://mili-te-amomucho-default-rtdb.firebaseio.com",
+    projectId: "mili-te-amomucho",
+    storageBucket: "mili-te-amomucho.firebasestorage.app",
+    messagingSenderId: "260667329582",
+    appId: "1:260667329582:web:d71bb0cc52ad91af6be3bf"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+const rachaRef = database.ref("racha/mili");
+
+///LOGICA DE LO DE HOY
+
 const indiceHoyGuardado = localStorage.getItem("hoyAbierto");
 
 function obtenerIndiceDelDia() {
@@ -109,6 +128,113 @@ function crearBotonHome() {
 
     document.body.appendChild(boton);
 }
+
+//MES PARA VIDAS DE RACHA!!
+
+function obtenerMesActual() {
+    const ahora = new Date();
+
+    return `${ahora.getFullYear()}-${ahora.getMonth() + 1}`;
+}
+
+function crearPanelRacha() {
+    if (document.getElementById("panel-racha")) return;
+
+    const panel = document.createElement("div");
+
+    panel.id = "panel-racha";
+
+    panel.innerHTML = `
+        <div class="racha-compacta">
+            <span class="racha-icono">🔥</span>
+            <span id="racha-numero">0</span>
+        </div>
+
+        <div class="racha-detalle">
+            <div class="racha-linea">🔥 Racha: <span id="racha-numero-detalle">0</span></div>
+            <div class="racha-linea">❤️ Vidas: <span id="vidas-numero">3</span>/3</div>
+        </div>
+    `;
+
+    panel.addEventListener("click", function() {
+        panel.classList.toggle("abierto");
+    });
+
+    document.body.appendChild(panel);
+}
+
+function actualizarPanelRacha(datos) {
+    const rachaNumero = document.getElementById("racha-numero");
+    const rachaNumeroDetalle = document.getElementById("racha-numero-detalle");
+    const vidasNumero = document.getElementById("vidas-numero");
+
+    if (!rachaNumero || !rachaNumeroDetalle || !vidasNumero) return;
+
+    const racha = datos?.rachaActual ?? 0;
+    const vidas = datos?.vidasRestantes ?? 3;
+
+    rachaNumero.textContent = racha;
+    rachaNumeroDetalle.textContent = racha;
+    vidasNumero.textContent = vidas;
+}
+
+function escucharRacha() {
+    crearPanelRacha();
+
+    rachaRef.on("value", function(snapshot) {
+        actualizarPanelRacha(snapshot.val());
+    });
+}
+
+function registrarAperturaDeHoy(indiceHoy) {
+    const mesActual = obtenerMesActual();
+
+    rachaRef.transaction(function(datos) {
+
+        if (!datos) {
+            return {
+                rachaActual: 1,
+                ultimoIndiceCheck: indiceHoy,
+                vidasRestantes: 3,
+                mesVidas: mesActual
+            };
+        }
+
+        if (datos.mesVidas !== mesActual) {
+            datos.vidasRestantes = 3;
+            datos.mesVidas = mesActual;
+        }
+
+        if (datos.ultimoIndiceCheck === indiceHoy) {
+            return datos;
+        }
+
+        if (datos.ultimoIndiceCheck === null || datos.ultimoIndiceCheck === undefined) {
+            datos.rachaActual = 1;
+            datos.ultimoIndiceCheck = indiceHoy;
+            return datos;
+        }
+
+        const diasSaltados = indiceHoy - datos.ultimoIndiceCheck - 1;
+
+        if (diasSaltados <= 0) {
+            datos.rachaActual = (datos.rachaActual || 0) + 1;
+        } else {
+            if (datos.vidasRestantes >= diasSaltados) {
+                datos.vidasRestantes -= diasSaltados;
+                datos.rachaActual = (datos.rachaActual || 0) + 1;
+            } else {
+                datos.rachaActual = 1;
+                datos.vidasRestantes = 0;
+            }
+        }
+
+        datos.ultimoIndiceCheck = indiceHoy;
+
+        return datos;
+    });
+}
+
 
 function ajustarSiEstaCercaDelCentro() {
     const centroHoy = scrollCentradoHoy();
@@ -276,6 +402,7 @@ function generarTarjetas() {
     iniciarTimer();
 
 crearBotonHome();
+escucharRacha();
 activarModoHoyInicial();
 }
 
@@ -462,9 +589,11 @@ if (hoy) {
         mostrarRecuerdo(hoy, indiceHoy);
 
         localStorage.setItem(
-            "hoyAbierto",
-            indiceHoy
-        );
+    "hoyAbierto",
+    indiceHoy
+);
+
+    registrarAperturaDeHoy(indiceHoy);
     });
 }
 
