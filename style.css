@@ -560,3 +560,16 @@ body.modo-hoy #boton-home {
         font-size: 0.85rem;
     }
 }
+
+.recuerdo-error {
+    background: #fff4f4;
+    color: #333;
+    text-align: center;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.recuerdo-error p {
+    font-size: 0.95rem;
+    margin: 0;
+}

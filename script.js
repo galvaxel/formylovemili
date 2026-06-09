@@ -409,34 +409,90 @@ activarModoHoyInicial();
 // CONVERSORES DE LINKS
 
 function convertirYoutube(url) {
-    const id = url.split("v=")[1];
+    if (!url) return "";
 
-    return `https://www.youtube.com/embed/${id}`;
+    try {
+        const urlObj = new URL(url);
+
+        if (urlObj.hostname.includes("youtu.be")) {
+            return `https://www.youtube.com/embed/${urlObj.pathname.slice(1)}`;
+        }
+
+        if (urlObj.pathname.includes("/shorts/")) {
+            const id = urlObj.pathname.split("/shorts/")[1];
+            return `https://www.youtube.com/embed/${id}`;
+        }
+
+        const id = urlObj.searchParams.get("v");
+
+        if (id) {
+            return `https://www.youtube.com/embed/${id}`;
+        }
+
+        return url;
+    } catch {
+        return "";
+    }
 }
 
 function convertirSpotify(url) {
+    if (!url) return "";
+
     return url.replace(
         "open.spotify.com/",
         "open.spotify.com/embed/"
     );
 }
 
+// SEGURIDAD / FALLBACKS
+
+function escaparHTML(texto) {
+    if (!texto) return "";
+
+    return String(texto)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function recuerdoError(mensaje = "Este recuerdo se escondió :(") {
+    return `
+        <div class="contenido-recuerdo recuerdo-error">
+            <p>${mensaje}</p>
+        </div>
+    `;
+}
+
 // RENDER DE CONTENIDO
 
 function renderContenido(item) {
+    if (!item || !item.tipo) {
+        return recuerdoError("Este pedacito del recuerdo está incompleto :(");
+    }
+
     if (item.tipo === "imagen") {
-        return `<img src="${item.imagen}">`;
+        if (!item.imagen) return recuerdoError("Falta la imagen :(");
+
+        return `<img src="${item.imagen}" alt="recuerdo">`;
     }
 
     if (item.tipo === "gif") {
-        return `<img src="${item.gif}">`;
+        if (!item.gif) return recuerdoError("Falta el gif :(");
+
+        return `<img src="${item.gif}" alt="gif del recuerdo">`;
     }
 
     if (item.tipo === "texto") {
-        return `<p>${item.texto}</p>`;
+        if (!item.texto) return recuerdoError("Falta el texto :(");
+
+        return `<p>${escaparHTML(item.texto)}</p>`;
     }
 
     if (item.tipo === "video") {
+        if (!item.video) return recuerdoError("Falta el video :(");
+
         return `
             <video controls>
                 <source src="${item.video}" type="video/mp4">
@@ -445,6 +501,8 @@ function renderContenido(item) {
     }
 
     if (item.tipo === "spotify") {
+        if (!item.url) return recuerdoError("Falta el link de Spotify :(");
+
         return `
             <iframe
                 src="${convertirSpotify(item.url)}">
@@ -453,6 +511,8 @@ function renderContenido(item) {
     }
 
     if (item.tipo === "youtube") {
+        if (!item.url) return recuerdoError("Falta el link de YouTube :(");
+
         return `
             <iframe
                 src="${convertirYoutube(item.url)}"
@@ -461,100 +521,138 @@ function renderContenido(item) {
         `;
     }
 
-    return "";
+    return recuerdoError(`Tipo de recuerdo no reconocido: ${escaparHTML(item.tipo)}`);
 }
 
 function mostrarRecuerdo(tarjeta, indice) {
     const recuerdo = recuerdos[indice];
 
+    if (!recuerdo) {
+        tarjeta.innerHTML = recuerdoError("Todavía no hay recuerdo para este día :(");
+        return;
+    }
+
     let contenidoHTML = "";
 
     if (recuerdo.tipo === "combo") {
-    const contenido = recuerdo.contenido
-        .map(item => renderContenido(item))
-        .join("");
+        if (!Array.isArray(recuerdo.contenido)) {
+            tarjeta.innerHTML = recuerdoError("Este combo está mal armado :(");
+            return;
+        }
 
-    const titulo = tarjeta.querySelector("h2")?.innerText || "";
+        const contenido = recuerdo.contenido
+            .map(item => renderContenido(item))
+            .join("");
 
-    if (tarjeta.id === "hoy") {
-        tarjeta.innerHTML = `
-            <div class="contenido-combo contenido-combo-hoy">
-                ${contenido}
-            </div>
-        `;
-    } else {
-        tarjeta.innerHTML = `
-            <h2>${titulo}</h2>
+        const titulo = tarjeta.querySelector("h2")?.innerText || "";
 
-            <div class="contenido-combo">
-                ${contenido}
-            </div>
-        `;
+        if (tarjeta.id === "hoy") {
+            tarjeta.innerHTML = `
+                <div class="contenido-combo contenido-combo-hoy">
+                    ${contenido}
+                </div>
+            `;
+        } else {
+            tarjeta.innerHTML = `
+                <h2>${titulo}</h2>
+
+                <div class="contenido-combo">
+                    ${contenido}
+                </div>
+            `;
+        }
+
+        return;
     }
 
-    return;
-}
-
     if (recuerdo.tipo === "imagen") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <img src="${recuerdo.imagen}">
-            </div>
-            ${recuerdo.texto ? `<p>${recuerdo.texto}</p>` : ""}
-        `;
+        if (!recuerdo.imagen) {
+            contenidoHTML = recuerdoError("Falta la imagen :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <img src="${recuerdo.imagen}" alt="recuerdo">
+                </div>
+                ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
+            `;
+        }
     }
 
     if (recuerdo.tipo === "gif") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <img src="${recuerdo.gif}">
-            </div>
-            ${recuerdo.texto ? `<p>${recuerdo.texto}</p>` : ""}
-        `;
+        if (!recuerdo.gif) {
+            contenidoHTML = recuerdoError("Falta el gif :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <img src="${recuerdo.gif}" alt="gif del recuerdo">
+                </div>
+                ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
+            `;
+        }
     }
 
     if (recuerdo.tipo === "video") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <video controls>
-                    <source src="${recuerdo.video}" type="video/mp4">
-                </video>
-            </div>
-            ${recuerdo.texto ? `<p>${recuerdo.texto}</p>` : ""}
-        `;
+        if (!recuerdo.video) {
+            contenidoHTML = recuerdoError("Falta el video :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <video controls>
+                        <source src="${recuerdo.video}" type="video/mp4">
+                    </video>
+                </div>
+                ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
+            `;
+        }
     }
 
     if (recuerdo.tipo === "texto") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <p>${recuerdo.texto}</p>
-            </div>
-        `;
+        if (!recuerdo.texto) {
+            contenidoHTML = recuerdoError("Falta el texto :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <p>${escaparHTML(recuerdo.texto)}</p>
+                </div>
+            `;
+        }
     }
 
     if (recuerdo.tipo === "spotify") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <iframe
-                    src="${convertirSpotify(recuerdo.url)}">
-                </iframe>
-            </div>
+        if (!recuerdo.url) {
+            contenidoHTML = recuerdoError("Falta el link de Spotify :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <iframe
+                        src="${convertirSpotify(recuerdo.url)}">
+                    </iframe>
+                </div>
 
-            ${recuerdo.texto ? `<p>${recuerdo.texto}</p>` : ""}
-        `;
+                ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
+            `;
+        }
     }
 
     if (recuerdo.tipo === "youtube") {
-        contenidoHTML = `
-            <div class="contenido-recuerdo">
-                <iframe
-                    src="${convertirYoutube(recuerdo.url)}"
-                    allowfullscreen>
-                </iframe>
-            </div>
+        if (!recuerdo.url) {
+            contenidoHTML = recuerdoError("Falta el link de YouTube :(");
+        } else {
+            contenidoHTML = `
+                <div class="contenido-recuerdo">
+                    <iframe
+                        src="${convertirYoutube(recuerdo.url)}"
+                        allowfullscreen>
+                    </iframe>
+                </div>
 
-            ${recuerdo.texto ? `<p>${recuerdo.texto}</p>` : ""}
-        `;
+                ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
+            `;
+        }
+    }
+
+    if (!contenidoHTML) {
+        contenidoHTML = recuerdoError(`Tipo de recuerdo no reconocido: ${escaparHTML(recuerdo.tipo)}`);
     }
 
     const titulo = tarjeta.querySelector("h2")?.innerText || "";
@@ -570,6 +668,8 @@ function mostrarRecuerdo(tarjeta, indice) {
         `;
     }
 }
+
+
 
 // CLICKS DE TARJETAS
 
