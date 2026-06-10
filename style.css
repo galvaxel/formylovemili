@@ -298,7 +298,9 @@ body.modo-deslizando #hoy .contenido-recuerdo {
     margin-top: 10px;
 }
 
-/* Botón volver a HOY */
+/* boton volver a HOY */
+/* BOTÓN HOY */
+
 #boton-home {
     position: fixed;
     right: 24px;
@@ -306,19 +308,26 @@ body.modo-deslizando #hoy .contenido-recuerdo {
 
     z-index: 999;
 
-    border: 2px solid black;
-    border-radius: 999px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
 
-    background: white;
-    padding: 12px 18px;
-
-    font-size: 1rem;
-    font-weight: bold;
-
+    padding: 0;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+#boton-home img {
+    width: 200px;
+    height: auto;
+
+    display: block;
+
+    pointer-events: none;
+    user-select: none;
 }
 
 #boton-home:hover {
@@ -327,6 +336,23 @@ body.modo-deslizando #hoy .contenido-recuerdo {
 
 body.modo-hoy #boton-home {
     opacity: 0.45;
+    transform: scale(0.92);
+}
+
+body.modo-deslizando #boton-home {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    #boton-home {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    #boton-home img {
+        width: 95px;
+    }
 }
 
 .espaciador {
@@ -453,74 +479,33 @@ body.modo-hoy #boton-home {
     transform: scale(1.04);
 }
 
+/* DECO RACHA */
+
 #panel-racha {
     position: fixed;
     left: 24px;
     bottom: 24px;
 
     z-index: 999;
-
-    background: white;
-    border: 2px solid black;
-    border-radius: 999px;
-
-    min-width: 72px;
-    height: 54px;
-
-    padding: 0 18px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     cursor: pointer;
 
-    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    border: none;
+    background: transparent;
+    box-shadow: none;
 
-    font-weight: bold;
-
-    transition:
-        width 0.3s ease,
-        height 0.3s ease,
-        border-radius 0.3s ease,
-        padding 0.3s ease,
-        transform 0.2s ease;
+    transition: transform 0.25s ease;
 }
 
 #panel-racha:hover {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .racha-compacta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    font-size: 1.35rem;
-}
-
-.racha-icono {
-    font-size: 1.45rem;
+    display: block;
 }
 
 .racha-detalle {
     display: none;
-
-    flex-direction: column;
-    gap: 4px;
-
-    font-size: 0.95rem;
-    line-height: 1.3;
-}
-
-#panel-racha.abierto {
-    width: 170px;
-    height: 86px;
-
-    border-radius: 24px;
-    padding: 12px 18px;
-
-    justify-content: flex-start;
 }
 
 #panel-racha.abierto .racha-compacta {
@@ -528,50 +513,136 @@ body.modo-hoy #boton-home {
 }
 
 #panel-racha.abierto .racha-detalle {
+    display: block;
+}
+
+.racha-asset-wrapper {
+    position: relative;
+    display: inline-block;
+    background: transparent;
+}
+
+.racha-asset {
+    display: block;
+    width: auto;
+    height: auto;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.racha-asset-cerrado {
+    width: 120px;
+}
+
+.racha-asset-abierto {
+    width: 180px;
+}
+
+/* TEXTO GENERAL DE RACHA */
+.racha-texto-superior {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    text-align: center;
+
+    color: #F2DAF2;
+
+    text-shadow:
+        1px 1px 0 white,
+        -1px 1px 0 white,
+        1px -1px 0 white,
+        -1px -1px 0 white,
+        0 2px 5px rgba(255,255,255,0.9);
+
+    font-family: "Rubik Bubbles", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    pointer-events: none;
+}
+
+/* NÚMERO EN PUSHEEN CHIQUITA */
+.racha-texto-superior.compacto {
+    top: 8px;
+    font-size: 1.25rem;
+}
+
+/* TEXTO EN PUSHEEN DESPLEGADA */
+.racha-texto-superior.expandido {
+    top: 10px;
+    font-size: 0.99rem;
+    line-height: 1.1;
+    font-weight: 760;
+}
+
+/* CROQUETAS */
+.racha-croquetas {
+    position: absolute;
+    bottom: 3px;
+    left: 52%;
+    transform: translateX(-50%);
+
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    width: 90%;
+
+    pointer-events: none;
 }
 
-.racha-linea {
-    white-space: nowrap;
+.icono-croqueta {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
     #panel-racha {
         left: 14px;
         bottom: 14px;
-
-        min-width: 62px;
-        height: 48px;
-
-        padding: 0 14px;
     }
 
-    .racha-compacta {
-        font-size: 1.15rem;
+    .racha-asset-cerrado {
+        width: 82px;
     }
 
-    #panel-racha.abierto {
-        width: 150px;
-        height: 78px;
-        padding: 10px 14px;
+    .racha-asset-abierto {
+        width: 155px;
     }
 
-    .racha-detalle {
-        font-size: 0.85rem;
+    .racha-texto-superior.compacto {
+        top: 7px;
+        font-size: 1rem;
     }
-}
 
-.recuerdo-error {
-    background: #fff4f4;
-    color: #333;
-    text-align: center;
-    padding: 12px;
-    box-sizing: border-box;
-}
+    .racha-texto-superior.expandido {
+        top: 8px;
+        font-size: 0.8rem;
+    }
 
-.recuerdo-error p {
-    font-size: 0.95rem;
-    margin: 0;
+    .icono-croqueta {
+        width: 18px;
+        height: 18px;
+    }
+
+    .racha-croquetas {
+        bottom: 2px;
+        gap: 5px;
+    }
 }
 
 /* ============================= */
@@ -665,11 +736,9 @@ body.modo-hoy #hoy {
 
 /* panel de racha */
 #panel-racha {
-    border: 2px solid var(--rosa-fuerte);
-    background: linear-gradient(135deg, #ffffff, #fff0f7);
-
-    box-shadow:
-        0 8px 22px rgba(255, 126, 182, 0.28);
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 /* texto de racha */
@@ -751,5 +820,157 @@ body {
         height: auto;
         min-height: 320px;
         padding: 16px;
+    }
+}
+
+/* RACHA PUSHEEN */
+
+.racha-texto-superior {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    text-align: center;
+
+    font-family: "Cherry Bomb One", cursive;
+    color: #ff5fa8;
+
+    text-shadow:
+        1px 1px 0 white,
+        -1px 1px 0 white,
+        1px -1px 0 white,
+        -1px -1px 0 white,
+        0 2px 6px rgba(255, 255, 255, 0.9);
+
+    pointer-events: none;
+}
+
+/* número arriba de la Pusheen chiquita */
+.racha-texto-superior.compacto {
+    top: 4px;
+    font-size: 1.35rem;
+}
+
+/* texto arriba de la Pusheen desplegada */
+.racha-texto-superior.expandido {
+    top: -26px;
+    left: 52%;
+    font-size: 1.25rem;
+    line-height: 1.1;
+}
+
+/* croquetas abajo */
+.racha-texto-inferior {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    color: #6b3b2a;
+
+    text-shadow:
+        1px 1px 0 white,
+        -1px 1px 0 white,
+        1px -1px 0 white,
+        -1px -1px 0 white;
+
+    pointer-events: none;
+}
+
+.icono-croqueta {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.racha-texto-superior.compacto {
+    font-family: "Rubik Bubbles", system-ui !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.racha-texto-superior {
+    color: #d9a7b8;
+
+text-shadow:
+    1px 1px 0 white,
+    -1px 1px 0 white,
+    1px -1px 0 white,
+    -1px -1px 0 white,
+    0 2px 5px rgba(255,255,255,0.9);
+}
+
+.racha-texto-superior.compacto {
+    top: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: "Rubik Bubbles", system-ui !important;
+    font-size: 1.64rem;
+}
+#boton-home {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+#boton-home img {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 0 !important;
+}
+
+
+html,
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    padding-top: 0;
+}
+
+/* SWAP POSICIONES: CINNA IZQUIERDA / PUSHEEN DERECHA */
+
+#boton-home {
+    left: 24px !important;
+    right: auto !important;
+    bottom: 24px;
+}
+
+#panel-racha {
+    right: 24px !important;
+    left: auto !important;
+    bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    #boton-home {
+        left: 14px !important;
+        right: auto !important;
+        bottom: 14px;
+    }
+
+    #panel-racha {
+        right: 14px !important;
+        left: auto !important;
+        bottom: 14px;
     }
 }

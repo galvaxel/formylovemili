@@ -2,7 +2,7 @@
 
 const carrusel = document.getElementById("carrusel");
 
-const MODO_PRUEBA = true;
+const MODO_PRUEBA = false;
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
@@ -120,7 +120,10 @@ function crearBotonHome() {
     const boton = document.createElement("button");
 
     boton.id = "boton-home";
-    boton.textContent = "♡ HOY";
+
+    boton.innerHTML = `
+        <img src="assets/imagenes/boton-hoy.png" alt="Volver a hoy">
+    `;
 
     boton.addEventListener("click", function() {
         volverAHoy();
@@ -137,6 +140,9 @@ function obtenerMesActual() {
     return `${ahora.getFullYear()}-${ahora.getMonth() + 1}`;
 }
 
+
+///RACHA!!!!!!!!!!!!!!!!!!
+
 function crearPanelRacha() {
     if (document.getElementById("panel-racha")) return;
 
@@ -144,17 +150,41 @@ function crearPanelRacha() {
 
     panel.id = "panel-racha";
 
-    panel.innerHTML = `
-        <div class="racha-compacta">
-            <span class="racha-icono">🔥</span>
-            <span id="racha-numero">0</span>
-        </div>
+panel.innerHTML = `
+    <div class="racha-compacta">
+        <div class="racha-asset-wrapper">
+            <img
+                class="racha-asset racha-asset-cerrado"
+                src="assets/imagenes/racha-cerrada.gif"
+                alt="Pusheen feliz"
+            >
 
-        <div class="racha-detalle">
-            <div class="racha-linea">🔥 Racha: <span id="racha-numero-detalle">0</span></div>
-            <div class="racha-linea">❤️ Vidas: <span id="vidas-numero">3</span>/3</div>
+            <div class="racha-texto-superior compacto">
+                <span id="racha-numero">0</span>
+            </div>
         </div>
-    `;
+    </div>
+
+    <div class="racha-detalle">
+        <div class="racha-asset-wrapper grande">
+            <img
+                class="racha-asset racha-asset-abierto"
+                src="assets/imagenes/racha-abierta.png"
+                alt="Pusheen desplegada"
+            >
+
+            <div class="racha-texto-superior expandido">
+                Te debo <span id="racha-numero-detalle">0</span> Pusheen
+            </div>
+
+            <div class="racha-croquetas" id="racha-croquetas">
+    <img src="assets/imagenes/croqueta.png" class="icono-croqueta">
+    <img src="assets/imagenes/croqueta.png" class="icono-croqueta">
+    <img src="assets/imagenes/croqueta.png" class="icono-croqueta">
+</div>
+        </div>
+    </div>
+`;
 
     panel.addEventListener("click", function() {
         panel.classList.toggle("abierto");
@@ -166,16 +196,33 @@ function crearPanelRacha() {
 function actualizarPanelRacha(datos) {
     const rachaNumero = document.getElementById("racha-numero");
     const rachaNumeroDetalle = document.getElementById("racha-numero-detalle");
-    const vidasNumero = document.getElementById("vidas-numero");
+    const contenedorCroquetas = document.getElementById("racha-croquetas");
 
-    if (!rachaNumero || !rachaNumeroDetalle || !vidasNumero) return;
+    if (!rachaNumero || !rachaNumeroDetalle || !contenedorCroquetas) return;
 
     const racha = datos?.rachaActual ?? 0;
     const vidas = datos?.vidasRestantes ?? 3;
 
     rachaNumero.textContent = racha;
     rachaNumeroDetalle.textContent = racha;
-    vidasNumero.textContent = vidas;
+
+    contenedorCroquetas.innerHTML = "";
+
+    for (let i = 1; i <= 3; i++) {
+        const croqueta = document.createElement("img");
+
+        croqueta.classList.add("icono-croqueta");
+
+        if (i <= vidas) {
+            croqueta.src = "assets/imagenes/croqueta.png";
+        } else {
+            croqueta.src = "assets/imagenes/croqueta-gris.png";
+        }
+
+        croqueta.alt = "croqueta";
+
+        contenedorCroquetas.appendChild(croqueta);
+    }
 }
 
 function escucharRacha() {
