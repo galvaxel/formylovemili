@@ -332,6 +332,26 @@ carrusel.addEventListener("click", function(e) {
     }
 }, true);
 
+let touchInicioX = 0;
+let touchInicioY = 0;
+
+carrusel.addEventListener("touchstart", function(e) {
+    touchInicioX = e.touches[0].clientX;
+    touchInicioY = e.touches[0].clientY;
+}, { passive: true });
+
+carrusel.addEventListener("touchmove", function(e) {
+    const touchActualX = e.touches[0].clientX;
+    const touchActualY = e.touches[0].clientY;
+
+    const diferenciaX = Math.abs(touchActualX - touchInicioX);
+    const diferenciaY = Math.abs(touchActualY - touchInicioY);
+
+    if (diferenciaX > 12 && diferenciaX > diferenciaY) {
+        activarModoDeslizando();
+    }
+}, { passive: true });
+
 // GENERAR TARJETAS
 
 function generarTarjetas() {
