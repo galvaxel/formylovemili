@@ -685,3 +685,39 @@ video,
 .contenido-combo img {
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+
+body {
+    background-image: url("assets/imagenes/fondo-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: center;
+    }
+}
+
+/* tarjetita escondida en el fondo*/
+
+.carrusel {
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 25%,
+        black 70%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 25%,
+        black 70%,
+        transparent 100%
+    );
+
+}

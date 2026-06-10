@@ -32,36 +32,47 @@ const recuerdos = [
     url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
     texto: "♡"
     },
-
-    {
-    tipo: "youtube",
-    url: "https://youtu.be/lfFwVsK_pJI?si=EVlpy8SG9W9EixAZ",
-    texto: "traap no es mi negro"
-    }, 
-
+    
         {
-    tipo: "youtube",
-    url: "https://youtu.be/lfFwVsK_pJI?si=EVlpy8SG9W9EixAZ",
-    texto: "traap no es mi negro"
-    }, 
-
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
         {
-    tipo: "youtube",
-    url: "https://youtu.be/lfFwVsK_pJI?si=EVlpy8SG9W9EixAZ",
-    texto: "traap no es mi negro"
-    }, 
-
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
         {
-    tipo: "youtube",
-    url: "https://youtu.be/lfFwVsK_pJI?si=EVlpy8SG9W9EixAZ",
-    texto: "traap no es mi negro"
-    }, 
-
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
         {
-    tipo: "youtube",
-    url: "https://www.youtube.com/watch?v=lfFwVsK_pJI&list=RDlfFwVsK_pJI",
-    texto: "traap no es mi negro"
-    }, 
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
+        {
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
+        {
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
+        {
+    tipo: "spotify",
+    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
+    texto: "♡"
+    },
+    
+
+    
+
+    
 
     
 ];
