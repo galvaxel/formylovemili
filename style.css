@@ -573,3 +573,115 @@ body.modo-hoy #boton-home {
     font-size: 0.95rem;
     margin: 0;
 }
+
+/* ============================= */
+/* TODO LO DE ABAJO ES FULL DECO */
+/* ============================= */
+/* ============================= */
+/* TODO LO DE ABAJO ES FULL DECO */
+/* ============================= */
+/* ============================= */
+/* TODO LO DE ABAJO ES FULL DECO */
+/* ============================= */
+/* ============================= */
+/* TODO LO DE ABAJO ES FULL DECO */
+/* ============================= */
+/* ============================= */
+/* TODO LO DE ABAJO ES FULL DECO */
+/* ============================= */
+
+:root {
+    --fondo-1: #fff1f7;
+    --fondo-2: #f4e9ff;
+    --fondo-3: #eaf7ff;
+
+    --rosa: #ffb6d5;
+    --rosa-fuerte: #ff7eb6;
+    --lila: #cdb4ff;
+    --celeste: #bdeeff;
+
+    --texto: #3a2d35;
+    --blanco: #fffdfd;
+}
+
+/* fondo general */
+body {
+    background:
+        radial-gradient(circle at top left, var(--fondo-2), transparent 35%),
+        radial-gradient(circle at bottom right, var(--fondo-3), transparent 35%),
+        linear-gradient(135deg, var(--fondo-1), #ffffff);
+
+    color: var(--texto);
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+/* tarjetas más suaves */
+.tarjeta {
+    border: 3px solid rgba(255, 126, 182, 0.75);
+    background: rgba(255, 253, 253, 0.9);
+
+    box-shadow:
+        0 12px 28px rgba(255, 126, 182, 0.18),
+        0 4px 10px rgba(0,0,0,0.08);
+
+    backdrop-filter: blur(6px);
+}
+
+/* títulos de tarjetas */
+.tarjeta h2 {
+    color: var(--rosa-fuerte);
+    letter-spacing: 0.5px;
+}
+
+/* portada / contenido */
+.contenido-recuerdo {
+    border: 2px dashed rgba(255, 126, 182, 0.6);
+    background: rgba(255, 246, 250, 0.7);
+}
+
+/* HOY más protagonista */
+body.modo-hoy #hoy {
+    border: 4px solid var(--rosa-fuerte);
+
+    box-shadow:
+        0 0 0 8px rgba(255, 182, 213, 0.22),
+        0 18px 40px rgba(255, 126, 182, 0.35);
+}
+
+/* hover más suave */
+.tarjeta:hover {
+    transform: translateY(-8px) scale(1.01);
+}
+
+/* botón volver a HOY */
+#boton-home {
+    border: 2px solid var(--rosa-fuerte);
+    color: var(--texto);
+    background: linear-gradient(135deg, #ffffff, #ffe6f1);
+
+    box-shadow:
+        0 8px 22px rgba(255, 126, 182, 0.28);
+}
+
+/* panel de racha */
+#panel-racha {
+    border: 2px solid var(--rosa-fuerte);
+    background: linear-gradient(135deg, #ffffff, #fff0f7);
+
+    box-shadow:
+        0 8px 22px rgba(255, 126, 182, 0.28);
+}
+
+/* texto de racha */
+.racha-compacta,
+.racha-detalle {
+    color: var(--texto);
+}
+
+/* links / iframes / videos más integrados */
+iframe,
+video,
+.contenido-recuerdo img,
+.contenido-combo img {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
