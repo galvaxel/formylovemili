@@ -444,12 +444,28 @@ function generarTarjetas() {
         </div>
     `;
 
-    // TIMER
-    carrusel.innerHTML += `
-        <div class="tarjeta">
-            <div id="timer">⏳</div>
+// TIMER
+carrusel.innerHTML += `
+    <div class="tarjeta tarjeta-timer">
+        <div class="timer-contenido">
+            <div id="timer" class="timer-reloj">
+                <img
+                    class="timer-icono"
+                    src="assets/imagenes/reloj-timer.gif"
+                    alt="Reloj"
+                >
+
+                <span id="timer-texto">0h 0m 0s</span>
+            </div>
+
+            <img
+                class="timer-gif"
+                src="assets/imagenes/timer.gif"
+                alt="Esperando el próximo recuerdo"
+            >
         </div>
-    `;
+    </div>
+`;
 
     // ESPACIADOR DERECHO
     carrusel.innerHTML += `
@@ -481,22 +497,27 @@ function convertirYoutube(url) {
     try {
         const urlObj = new URL(url);
 
+        // Link corto: https://youtu.be/ID
         if (urlObj.hostname.includes("youtu.be")) {
-            return `https://www.youtube.com/embed/${urlObj.pathname.slice(1)}`;
-        }
-
-        if (urlObj.pathname.includes("/shorts/")) {
-            const id = urlObj.pathname.split("/shorts/")[1];
+            const id = urlObj.pathname.split("/")[1];
             return `https://www.youtube.com/embed/${id}`;
         }
 
+        // Shorts: https://www.youtube.com/shorts/ID
+        if (urlObj.pathname.includes("/shorts/")) {
+            const id = urlObj.pathname.split("/shorts/")[1].split("/")[0];
+            return `https://www.youtube.com/embed/${id}`;
+        }
+
+        // Link normal: https://www.youtube.com/watch?v=ID
         const id = urlObj.searchParams.get("v");
 
         if (id) {
             return `https://www.youtube.com/embed/${id}`;
         }
 
-        return url;
+        return "";
+
     } catch {
         return "";
     }
@@ -505,10 +526,25 @@ function convertirYoutube(url) {
 function convertirSpotify(url) {
     if (!url) return "";
 
-    return url.replace(
-        "open.spotify.com/",
-        "open.spotify.com/embed/"
-    );
+    try {
+        const urlObj = new URL(url);
+
+        const partes = urlObj.pathname.split("/").filter(Boolean);
+
+        // Si viene como /intl-es/track/ID
+        let tipo = partes[0];
+        let id = partes[1];
+
+        if (partes[0]?.startsWith("intl-")) {
+            tipo = partes[1];
+            id = partes[2];
+        }
+
+        return `https://open.spotify.com/embed/${tipo}/${id}`;
+
+    } catch {
+        return "";
+    }
 }
 
 // SEGURIDAD / FALLBACKS
@@ -799,8 +835,7 @@ function tiempoHastaDesbloqueo() {
 }
 
 function iniciarTimer() {
-    const timer = document.getElementById("timer");
-
+    const timerTexto = document.getElementById("timer-texto");
     let indiceAnterior = obtenerIndiceDelDia();
 
     function actualizar() {
@@ -818,8 +853,11 @@ function iniciarTimer() {
         const minutos = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
         const segundos = Math.floor((ms % (1000 * 60)) / 1000);
 
-        timer.innerHTML = `⏳ ${horas}h ${minutos}m ${segundos}s`;
-
+if (timerTexto) {
+timerTexto.innerHTML = `
+    ${String(horas).padStart(2, "0")}:${String(minutos).padStart(2, "0")}:${String(segundos).padStart(2, "0")}
+`;
+}
         requestAnimationFrame(actualizar);
     }
 

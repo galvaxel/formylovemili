@@ -974,3 +974,123 @@ body {
         bottom: 14px;
     }
 }
+
+/* TARJETA TIMER */
+
+.tarjeta-timer {
+    border: none !important;
+
+    background: #fffafd !important;
+
+}
+
+.timer-contenido {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    height: auto;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    color: #9f7a2d;
+
+    text-align: center;
+}
+
+.timer-gif {
+    width: 78%;
+    max-height: 220px;
+
+    object-fit: contain;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* TIMER GIF LIMPIO SIN RECORTE */
+
+.tarjeta-timer .timer-gif {
+    width: 105% !important;
+    height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    transform: translateY(180px);
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+/* TIMER CON RELOJ GIF */
+
+#timer.timer-reloj {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: auto;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: #9f7a2d;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+.timer-icono {
+    width: 40px!important;
+    height: 40px!important;
+
+    object-fit: contain;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+#timer-texto {
+    font-size: 1.9rem;
+    font-weight: 1000;
+
+    /* fuente timer*/
+  font-family: "Ms Madi";
+    font-size: 3.10rem;
+    font-weight: 700;
+
+    color: #4c343c;
+}
+
+.tarjeta {
+    border: none !important;
+    background: #fff6ec !important;
+
+box-shadow:
+    0 14px 32px rgba(120, 120, 120, 0.18),
+    0 5px 12px rgba(160, 160, 160, 0.12) !important;
+}

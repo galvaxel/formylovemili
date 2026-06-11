@@ -7,21 +7,21 @@ const recuerdos = [
     contenido: [
 
         {
-            tipo: "gif",
-            gif: "assets/imagenes/vosyyo.gif"
+            tipo: "imagen",
+            imagen: "assets/imagenes/prueba2.jpg"
         },
 ,
 
         {            
             tipo: "texto",
-            texto: "teamo!!!!!"
+            texto: "espero que te guste este regalito por los dos años de conocernos :3"
 
         },
         
         {
 
-            tipo: "spotify",
-            url: "https://open.spotify.com/track/70L6nHORQsblY813yNqUR3"
+            tipo: "youtube",
+            url: "https://youtu.be/bXt2Pi3CXkY?si=RDV4Egm7jfe4Dloq"
         }
 
     ]
