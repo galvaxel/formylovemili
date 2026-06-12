@@ -1094,3 +1094,472 @@ box-shadow:
     0 14px 32px rgba(120, 120, 120, 0.18),
     0 5px 12px rgba(160, 160, 160, 0.12) !important;
 }
+
+/* PORTADAS DE RECUERDOS CERRADOS */
+
+.tarjeta-cerrada {
+    position: relative;
+    overflow: hidden;
+
+    padding: 0 !important;
+    border: none !important;
+}
+
+.portada-recuerdo {
+    position: absolute;
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.titulo-portada {
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 !important;
+
+    padding: 8px 16px;
+
+    background: rgba(255, 248, 240, 0.78);
+    border-radius: 999px;
+
+    color: #d9a7b8;
+
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(120, 120, 120, 0.10);
+
+    backdrop-filter: blur(4px);
+}
+
+/* HOY CERRADO: IMAGEN + GIF ENCIMA */
+
+.tarjeta-hoy-cerrada {
+    position: relative;
+    overflow: hidden;
+
+    padding: 0 !important;
+    border: none !important;
+}
+
+.hoy-portada {
+    position: absolute;
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 20px;
+}
+
+.hoy-gif {
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60% !important;
+    height: auto !important;
+
+    object-fit: contain;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    pointer-events: none;
+}
+
+/* EFECTO EN KITI HOY / ONLY PC FOR NOW */
+
+@media (hover: hover) and (pointer: fine) {
+    .hoy-gif {
+        transition:
+            transform 0.25s ease,
+            filter 0.25s ease;
+    }
+
+    .tarjeta-hoy-cerrada:hover .hoy-gif {
+        transform: translate(-50%, -50%) scale(1.18);
+
+        filter:
+            drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 10px rgba(255, 190, 220, 0.65));
+    }
+}
+
+/* TIMER CON PORTADA FIJA */
+
+.tarjeta-timer {
+    position: relative;
+    overflow: hidden;
+
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+
+    box-shadow:
+        0 12px 28px rgba(120, 120, 120, 0.13),
+        0 4px 10px rgba(160, 160, 160, 0.10) !important;
+}
+
+.timer-portada {
+    position: absolute;
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 20px;
+}
+
+.timer-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+}
+
+#timer.timer-reloj {
+    position: absolute;
+    top: 215px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: auto;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+.timer-icono {
+    width: 35px !important;
+    height: 35px !important;
+
+    object-fit: contain;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+#timer-texto {
+    font-family: "Ms Madi", cursive;
+    font-size: 3.90rem;
+    font-weight: 700;
+
+    color: #4c343c;
+}
+
+.tarjeta-timer .timer-gif {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 45%);
+
+    width: 60% !important;
+    height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+
+/* AYER CARTEL CUKI */
+
+.imagen-ayer {
+    position: absolute;
+    z-index: 3;
+
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90% !important;
+    height: auto !important;
+
+    object-fit: contain;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    pointer-events: none;
+}
+
+/* EFECTO EN PNG DE CUKI */
+
+@media (hover: hover) and (pointer: fine) {
+    .imagen-ayer {
+        transition:
+            transform 0.25s ease,
+            filter 0.25s ease;
+    }
+
+    #ayer:hover .imagen-ayer {
+        transform: translate(-50%, -50%) scale(1.12);
+
+        filter:
+            drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 10px rgba(255, 190, 220, 0.65));
+    }
+
+/* FECHA SOBRE PORTADAS VIEJITAS */
+
+.titulo-portada {
+    position: absolute;
+    z-index: 3;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+width: 550px !important;
+height: 230px !important;
+
+    font-size: 4rem !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: url("assets/imagenes/nube-fecha.png") center / contain no-repeat !important;
+
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Shadows Into Light Two", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+    color: #d43d6f !important;
+
+    text-align: center;
+    pointer-events: none;
+}
+
+.contenido-recuerdo p,
+.contenido-combo p,
+.tarjeta > p {
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #3f3338;
+    line-height: 1.35;
+    text-align: center;
+
+    margin: 12px;
+}
+
+
+/* arreglo general de tarjetass */
+
+.contenido-recuerdo {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* fix para loscontenidos d las tarjetas */
+.contenido-recuerdo img,
+.contenido-recuerdo video,
+.contenido-recuerdo iframe,
+.contenido-combo img,
+.contenido-combo video,
+.contenido-combo iframe {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    border-radius: 15px !important;
+}
+
+/* FIX para lo de spoti/yt */
+
+.contenido-recuerdo iframe,
+.contenido-combo iframe {
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* cinna boton */
+
+#boton-home {
+    opacity: 1 !important;
+    filter: none;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* fix 1 */
+body.modo-hoy #boton-home {
+    opacity: 1 !important;
+    transform: scale(0.82);
+    filter: none;
+}
+
+/* fix cinna desplegado 2 */
+body.modo-deslizando #boton-home {
+    opacity: 1 !important;
+    transform: scale(1);
+    filter: none;
+}
+
+/* sombra y fxsss */
+@media (hover: hover) and (pointer: fine) {
+    body.modo-deslizando #boton-home:hover {
+        transform: scale(1.12);
+
+        filter:
+            drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 10px rgba(255, 190, 220, 0.65));
+    }
+}
+
+
+
+
+
+#deco-esquina {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+
+    width: 150px;
+    height: auto;
+
+    z-index: 999;
+
+    cursor: pointer;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+
+    animation: palpitarDecoracion 1.4s ease-in-out infinite;
+
+    user-select: none;
+}
+
+@keyframes palpitarDecoracion {
+    0% {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12))
+            drop-shadow(0 0 6px rgba(255, 190, 220, 0.45));
+    }
+
+    50% {
+        transform: scale(1.06);
+        filter:
+            drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 14px rgba(255, 190, 220, 0.75));
+    }
+
+    100% {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12))
+            drop-shadow(0 0 6px rgba(255, 190, 220, 0.45));
+    }
+}
+}
+
+/* POMPO ESQUINA DERECHA */
+
+#pompo-esquina {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+    width: 180px;
+    height: auto;
+
+    z-index: 999;
+
+    cursor: pointer;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    animation: none !important;
+
+    user-select: none;
+
+        filter:
+        drop-shadow(0 6px 9px rgba(0, 0, 0, 0.14))
+        drop-shadow(0 0 8px rgba(255, 190, 220, 0.42));
+}
+
+@keyframes palpitarPompo {
+    0% {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12))
+            drop-shadow(0 0 6px rgba(255, 190, 220, 0.45));
+    }
+
+    50% {
+        transform: scale(1.06);
+        filter:
+            drop-shadow(0 8px 14px rgba(0, 0, 0, 0.18))
+            drop-shadow(0 0 14px rgba(255, 190, 220, 0.75));
+    }
+
+    100% {
+        transform: scale(1);
+        filter:
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12))
+            drop-shadow(0 0 6px rgba(255, 190, 220, 0.45));
+    }
+}

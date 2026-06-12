@@ -2,7 +2,7 @@
 
 const carrusel = document.getElementById("carrusel");
 
-const MODO_PRUEBA = false;
+const MODO_PRUEBA = true;
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
@@ -47,7 +47,11 @@ function obtenerFechaRecuerdo(indice) {
 
     fecha.setDate(fecha.getDate() + indice);
 
-    return fecha.toLocaleDateString("es-AR");
+    const dia = String(fecha.getDate()).padStart(2, "0");
+    const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+    const año = fecha.getFullYear();
+
+    return `${dia}.${mes}.${año}`;
 }
 
 // DRAG + INERCIA DEL CARRUSEL
@@ -77,6 +81,18 @@ function centrarHoy(suave = true) {
     });
 }
 
+function centrarTarjeta(tarjeta, suave = true) {
+    if (!tarjeta) return;
+
+    const scrollObjetivo =
+        tarjeta.offsetLeft - (carrusel.clientWidth / 2) + (tarjeta.offsetWidth / 2);
+
+    carrusel.scrollTo({
+        left: scrollObjetivo,
+        behavior: suave ? "smooth" : "auto"
+    });
+}
+
 function limiteScrollDerecha() {
     const tarjetaTimer = document.getElementById("timer")?.closest(".tarjeta");
 
@@ -97,12 +113,23 @@ function activarModoDeslizando() {
 }
 
 function volverAHoy() {
+    if (animacionInercia) {
+        cancelAnimationFrame(animacionInercia);
+        animacionInercia = null;
+    }
+
     document.body.classList.remove("modo-deslizando");
     document.body.classList.add("modo-hoy");
 
+    // primer centrado: empieza a llevarte a HOY
     setTimeout(() => {
         centrarHoy(true);
-    }, 120);
+    }, 80);
+
+    // segundo centrado: corrige cuando la animación de tamaño ya terminó
+    setTimeout(() => {
+        centrarHoy(true);
+    }, 360);
 }
 
 function activarModoHoyInicial() {
@@ -399,6 +426,55 @@ carrusel.addEventListener("touchmove", function(e) {
     }
 }, { passive: true });
 
+
+// PORTADITAS DE TARJETAS VIEJAS!!
+
+const portadas = [
+    "assets/imagenes/portada-1.webp",
+    "assets/imagenes/portada-2.webp",
+    "assets/imagenes/portada-3.webp",
+    "assets/imagenes/portada-4.webp",
+    "assets/imagenes/portada-5.webp",
+    "assets/imagenes/portada-6.webp",
+    "assets/imagenes/portada-7.webp",
+    "assets/imagenes/portada-8.webp"
+];
+
+function mezclarPortadas(array) {
+    const copia = [...array];
+
+    for (let i = copia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+
+    return copia;
+}
+
+function obtenerOrdenPortadas() {
+    const guardado = localStorage.getItem("ordenPortadas");
+
+    if (guardado) {
+        const orden = JSON.parse(guardado);
+
+        if (orden.length === portadas.length) {
+            return orden;
+        }
+    }
+
+    const nuevoOrden = mezclarPortadas(portadas);
+
+    localStorage.setItem("ordenPortadas", JSON.stringify(nuevoOrden));
+
+    return nuevoOrden;
+}
+
+function obtenerPortada(indice) {
+    const orden = obtenerOrdenPortadas();
+
+    return orden[indice % orden.length];
+}
+
 // GENERAR TARJETAS
 
 function generarTarjetas() {
@@ -412,41 +488,56 @@ function generarTarjetas() {
 
     // recuerdos viejos
     for (let i = 0; i < indiceHoy - 1; i++) {
-        carrusel.innerHTML += `
-            <div class="tarjeta recuerdo-bloqueado" data-indice="${i}">
-                <h2>${obtenerFechaRecuerdo(i)}</h2>
-                <div class="contenido-recuerdo">
-                    <img src="assets/imagenes/portada.jpg">
-                </div>
-            </div>
-        `;
+    carrusel.innerHTML += `
+    <div class="tarjeta recuerdo-bloqueado tarjeta-cerrada" data-indice="${i}">
+        <img class="portada-recuerdo" src="${obtenerPortada(i)}" alt="Portada del recuerdo">
+        <h2 class="titulo-portada">${obtenerFechaRecuerdo(i)}</h2>
+    </div>
+`;
     }
 
     // AYER
     if (indiceHoy > 0) {
-        carrusel.innerHTML += `
-            <div class="tarjeta" id="ayer">
-                <h2>AYER</h2>
-                <div class="contenido-recuerdo">
-                    <img src="assets/imagenes/portada.jpg">
-                </div>
-            </div>
-        `;
+carrusel.innerHTML += `
+    <div class="tarjeta tarjeta-cerrada" id="ayer">
+        <img class="portada-recuerdo" src="${obtenerPortada(indiceHoy - 1)}" alt="Portada de ayer">
+
+        <img
+            class="imagen-ayer"
+            src="assets/imagenes/ayer.png"
+            alt="Ayer"
+        >
+    </div>
+`; 
     }
 
     // HOY
-    carrusel.innerHTML += `
-        <div class="tarjeta" id="hoy">
-            <h2>HOY</h2>
-            <div class="contenido-recuerdo">
-                🎀 Abrir 🎀
-            </div>
-        </div>
-    `;
+
+        carrusel.innerHTML += `
+    <div class="tarjeta tarjeta-hoy-cerrada" id="hoy">
+        <img
+            class="hoy-portada"
+            src="assets/imagenes/hoy-portada.webp"
+            alt="Abrir recuerdo de hoy"
+        >
+
+        <img
+            class="hoy-gif"
+            src="assets/imagenes/hoy-gif.gif"
+            alt="Abrir"
+        >
+    </div>
+`;
 
 // TIMER
 carrusel.innerHTML += `
     <div class="tarjeta tarjeta-timer">
+        <img
+            class="timer-portada"
+            src="assets/imagenes/timer-portada.webp"
+            alt="Portada del timer"
+        >
+
         <div class="timer-contenido">
             <div id="timer" class="timer-reloj">
                 <img
@@ -455,7 +546,7 @@ carrusel.innerHTML += `
                     alt="Reloj"
                 >
 
-                <span id="timer-texto">0h 0m 0s</span>
+                <span id="timer-texto">00:00:00</span>
             </div>
 
             <img
@@ -487,6 +578,58 @@ carrusel.innerHTML += `
 crearBotonHome();
 escucharRacha();
 activarModoHoyInicial();
+}
+
+// DECO DE KIKILALA
+
+const decoEsquina = document.getElementById("deco-esquina");
+
+if (decoEsquina) {
+    let animandoDeco = false;
+
+    decoEsquina.addEventListener("click", () => {
+        if (animandoDeco) return;
+
+        animandoDeco = true;
+
+        decoEsquina.style.animation = "none";
+
+        decoEsquina.src = `assets/imagenes/deco-animacion.gif?t=${Date.now()}`;
+
+        setTimeout(() => {
+            decoEsquina.src = "assets/imagenes/deco-idle.png";
+            decoEsquina.style.animation = "palpitarDecoracion 1.4s ease-in-out infinite";
+
+            animandoDeco = false;
+        }, 7000); //RECORDAR cambiar si lagea post entrega de pag :3 !!!!!!!!
+    });
+}
+
+/// POMPOMDECORACION
+
+const pompoEsquina = document.getElementById("pompo-esquina");
+
+if (pompoEsquina) {
+    let animandoPompo = false;
+
+    const pompoIdle = "assets/imagenes/pompo-esquina.gif";
+    const pompoClick = "assets/imagenes/pompo-besos.gif";
+
+    pompoEsquina.addEventListener("click", () => {
+        if (animandoPompo) return;
+
+        animandoPompo = true;
+
+        // Reinicia el gif de click desde el frame 1
+        pompoEsquina.src = `${pompoClick}?t=${Date.now()}`;
+
+        setTimeout(() => {
+            // Vuelve al gif idle y también lo reinicia
+            pompoEsquina.src = `${pompoIdle}?t=${Date.now()}`;
+
+            animandoPompo = false;
+        }, 4500); // duración del gif de click
+    });
 }
 
 // CONVERSORES DE LINKS
@@ -628,6 +771,10 @@ function renderContenido(item) {
 }
 
 function mostrarRecuerdo(tarjeta, indice) {
+
+    tarjeta.classList.remove("tarjeta-hoy-cerrada");
+
+
     const recuerdo = recuerdos[indice];
 
     if (!recuerdo) {
@@ -760,16 +907,24 @@ function mostrarRecuerdo(tarjeta, indice) {
 
     const titulo = tarjeta.querySelector("h2")?.innerText || "";
 
-    if (tarjeta.id === "hoy") {
-        tarjeta.innerHTML = `
-            ${contenidoHTML}
-        `;
-    } else {
-        tarjeta.innerHTML = `
-            <h2>${titulo}</h2>
-            ${contenidoHTML}
-        `;
-    }
+if (
+    tarjeta.id === "hoy" ||
+    tarjeta.id === "ayer" ||
+    tarjeta.classList.contains("recuerdo-bloqueado")
+) {
+    tarjeta.innerHTML = `
+        ${contenidoHTML}
+    `;
+} else if (titulo) {
+    tarjeta.innerHTML = `
+        <h2>${titulo}</h2>
+        ${contenidoHTML}
+    `;
+} else {
+    tarjeta.innerHTML = `
+        ${contenidoHTML}
+    `;
+}
 }
 
 
@@ -817,6 +972,15 @@ if (hoy) {
             mostrarRecuerdo(tarjeta, indice);
         });
     });
+
+    const tarjetaTimer = document.querySelector(".tarjeta-timer");
+
+if (tarjetaTimer) {
+    tarjetaTimer.addEventListener("click", () => {
+        activarModoDeslizando();
+        centrarTarjeta(tarjetaTimer, true);
+    });
+}
 }
 
 // TIMER
