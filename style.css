@@ -227,22 +227,10 @@ iframe {
 }
 
 .carrusel {
-    cursor: grab;
-    user-select: none;
-
-}
-
-.carrusel.arrastrando {
-    cursor: grabbing;
-}
-
-.carrusel {
-    cursor: grab;
     user-select: none;
 }
 
 .carrusel.arrastrando {
-    cursor: grabbing;
     scroll-snap-type: none;
     scroll-behavior: auto;
 }
@@ -1589,4 +1577,56 @@ body.modo-deslizando #boton-home {
     #pompo-esquina {
         right: 12px !important;
     }
+}
+
+
+/* SPOTIFY COMPACTO */
+
+.spotify-embed,
+.contenido-recuerdo iframe.spotify-embed,
+.contenido-combo iframe.spotify-embed,
+#hoy .contenido-combo-hoy iframe.spotify-embed {
+    width: 95% !important;
+
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 12px !important;
+
+    margin: 8px auto !important;
+    display: block !important;
+
+    box-shadow: none !important;
+}
+
+#hoy .contenido-combo-hoy img {
+    max-height: 250px !important;
+    width: 90% !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+
+    margin: 0 auto !important;
+
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+#hoy:not(.tarjeta-hoy-cerrada) {
+    background-image: url("assets/imagenes/fondo-hoy-abierto.webp") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden !important;
+    border-radius: 20px !important;
+}
+
+#hoy:not(.tarjeta-hoy-cerrada) .contenido-combo-hoy,
+#hoy:not(.tarjeta-hoy-cerrada) .contenido-recuerdo {
+    background: transparent !important;
 }

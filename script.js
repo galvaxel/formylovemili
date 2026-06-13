@@ -2,7 +2,7 @@
 
 const carrusel = document.getElementById("carrusel");
 
-const MODO_PRUEBA = true;
+const MODO_PRUEBA = false;
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
@@ -752,6 +752,8 @@ function renderContenido(item) {
         return `
             <iframe
                 src="${convertirSpotify(item.url)}">
+                        height="80"
+        loading="lazy">
             </iframe>
         `;
     }
@@ -796,21 +798,25 @@ function mostrarRecuerdo(tarjeta, indice) {
 
         const titulo = tarjeta.querySelector("h2")?.innerText || "";
 
-        if (tarjeta.id === "hoy") {
-            tarjeta.innerHTML = `
-                <div class="contenido-combo contenido-combo-hoy">
-                    ${contenido}
-                </div>
-            `;
-        } else {
-            tarjeta.innerHTML = `
-                <h2>${titulo}</h2>
+if (
+    tarjeta.id === "hoy" ||
+    tarjeta.id === "ayer" ||
+    tarjeta.classList.contains("recuerdo-bloqueado")
+) {
+    tarjeta.innerHTML = `
+        <div class="contenido-combo ${tarjeta.id === "hoy" ? "contenido-combo-hoy" : ""}">
+            ${contenido}
+        </div>
+    `;
+} else {
+    tarjeta.innerHTML = `
+        <h2>${titulo}</h2>
 
-                <div class="contenido-combo">
-                    ${contenido}
-                </div>
-            `;
-        }
+        <div class="contenido-combo">
+            ${contenido}
+        </div>
+    `;
+}
 
         return;
     }
@@ -875,8 +881,11 @@ function mostrarRecuerdo(tarjeta, indice) {
             contenidoHTML = `
                 <div class="contenido-recuerdo">
                     <iframe
-                        src="${convertirSpotify(recuerdo.url)}">
-                    </iframe>
+                 class="spotify-embed"
+                src="${convertirSpotify(recuerdo.url)}"
+                 height="80"
+                loading="lazy">
+                        </iframe>
                 </div>
 
                 ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
@@ -1029,3 +1038,4 @@ timerTexto.innerHTML = `
 }
 
 generarTarjetas();
+
