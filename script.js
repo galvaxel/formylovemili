@@ -210,7 +210,7 @@ panel.innerHTML = `
             >
 
             <div class="racha-texto-superior expandido">
-                Te debo <span id="racha-numero-detalle">0</span> Pusheens
+            Te debo <span id="racha-numero-detalle">0</span> <span id="racha-palabra">Pusheens</span>
             </div>
 
             <div class="racha-croquetas" id="racha-croquetas">
@@ -232,15 +232,17 @@ panel.innerHTML = `
 function actualizarPanelRacha(datos) {
     const rachaNumero = document.getElementById("racha-numero");
     const rachaNumeroDetalle = document.getElementById("racha-numero-detalle");
+    const rachaPalabra = document.getElementById("racha-palabra");
     const contenedorCroquetas = document.getElementById("racha-croquetas");
 
-    if (!rachaNumero || !rachaNumeroDetalle || !contenedorCroquetas) return;
+    if (!rachaNumero || !rachaNumeroDetalle || !rachaPalabra || !contenedorCroquetas) return;
 
     const racha = datos?.rachaActual ?? 0;
     const vidas = datos?.vidasRestantes ?? 3;
 
     rachaNumero.textContent = racha;
     rachaNumeroDetalle.textContent = racha;
+    rachaPalabra.textContent = racha === 1 ? "Pusheen" : "Pusheens";
 
     contenedorCroquetas.innerHTML = "";
 
