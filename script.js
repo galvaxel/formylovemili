@@ -959,23 +959,27 @@ function activarClicks() {
     const hoy = document.getElementById("hoy");
 
 if (hoy) {
-    hoy.addEventListener("click", () => {
+hoy.addEventListener("click", () => {
 
-        if (document.body.classList.contains("modo-deslizando")) {
-            volverAHoy();
-            return;
-        }
+    if (document.body.classList.contains("modo-deslizando")) {
+        volverAHoy();
+        return;
+    }
 
-        reproducirSonido("assets/sonidos/sonido-hoy.mp3", 0.55);
-        mostrarRecuerdo(hoy, indiceHoy);
+    if (!hoy.classList.contains("tarjeta-hoy-cerrada")) {
+        return;
+    }
 
-        localStorage.setItem(
-    "hoyAbierto",
-    indiceHoy
-);
+    reproducirSonido("assets/sonidos/sonido-hoy.mp3", 0.55);
 
-    registrarAperturaDeHoy(indiceHoy);
-    });
+    mostrarRecuerdo(hoy, indiceHoy);
+
+    localStorage.setItem("hoyAbierto", indiceHoy);
+
+    if (!MODO_PRUEBA) {
+        registrarAperturaDeHoy(indiceHoy);
+    }
+});
 }
 
     const ayer = document.getElementById("ayer");

@@ -26,17 +26,42 @@ const recuerdos = [
     
     },
 
-    {
-    tipo: "spotify",
-    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
-    texto: "♡"
-    },
-    
+{   tipo: "combo",
+
+    contenido: [
+
+        {tipo:"texto",
+        texto: "hola hermosa :3 bienvenida al dia dos, como podras ver a tu izquierda, el encargado de mostrarte la tarjetita del dia anterior va a ser... COOKY!! gracias cooky por acompañarnos (aplausos)",
+        },
+
         {
-    tipo: "spotify",
-    url: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8",
-    texto: "♡"
-    },
+         tipo:"gif",
+         gif: "assets/imagenes/walle-eve.gif",   
+
+        },
+
+        {
+            tipo:"texto",
+            texto: "gracias por pasarte hoy, te amo milagros herrera",
+
+        },
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-corazones.gif",   
+
+        },
+        
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-flores.gif",   
+
+        },
+    
+    ]
+
+
+},
     
 
     

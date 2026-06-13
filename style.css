@@ -1630,3 +1630,20 @@ body.modo-deslizando #boton-home {
 #hoy:not(.tarjeta-hoy-cerrada) .contenido-recuerdo {
     background: transparent !important;
 }
+
+/* CENTRADO SMART DE COMBOS */
+
+#hoy .contenido-combo-hoy {
+    justify-content: flex-start !important;
+}
+
+#hoy .contenido-combo-hoy::before,
+#hoy .contenido-combo-hoy::after {
+    content: "";
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+#hoy .contenido-combo-hoy > * {
+    flex-shrink: 0;
+}
