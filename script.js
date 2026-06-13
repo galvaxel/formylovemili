@@ -210,7 +210,7 @@ panel.innerHTML = `
             >
 
             <div class="racha-texto-superior expandido">
-                Te debo <span id="racha-numero-detalle">0</span> Pusheen
+                Te debo <span id="racha-numero-detalle">0</span> Pusheens
             </div>
 
             <div class="racha-croquetas" id="racha-croquetas">
