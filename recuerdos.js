@@ -13,7 +13,7 @@ const recuerdos = [
 
         {
             tipo: "texto",
-            texto: "Hoy ya son dos años del día en que nuestros corazones empezaron a entrelazarse, aunque nuestras almas quizás ya se estaban buscando desde antes. Gracias por ser parte de mi vida. Espero que te guste este humilde regalito que te armé con todo mi amor..."
+            texto: "Hoy ya son dos años del día en que nuestros corazones empezaron a entrelazarse, aunque nuestras almas quizás ya se estaban buscando desde antes. Gracias por ser parte de mi vida. Espero que te guste este pequeño obsequio que te prepare con todo mi amor... espero que puedas visitarlo a diario."
         },
 
         {
