@@ -1,3 +1,12 @@
+function reproducirSonido(ruta, volumen = 0.55) {
+    const audio = new Audio(ruta);
+    audio.volume = volumen;
+    audio.currentTime = 0;
+
+    audio.play().catch(() => {});
+}
+
+
 //TARJETAS DE CARRUSELLL
 
 const carrusel = document.getElementById("carrusel");
@@ -592,6 +601,8 @@ if (decoEsquina) {
 
         animandoDeco = true;
 
+        reproducirSonido("assets/sonidos/sonido-kiki.mp3", 0.55);
+
         decoEsquina.style.animation = "none";
 
         decoEsquina.src = `assets/imagenes/deco-animacion.gif?t=${Date.now()}`;
@@ -953,6 +964,7 @@ if (hoy) {
             return;
         }
 
+        reproducirSonido("assets/sonidos/sonido-hoy.mp3", 0.55);
         mostrarRecuerdo(hoy, indiceHoy);
 
         localStorage.setItem(
