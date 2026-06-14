@@ -1647,3 +1647,104 @@ body.modo-deslizando #boton-home {
 #hoy .contenido-combo-hoy > * {
     flex-shrink: 0;
 }
+
+/* FIX SOLO TARJETAS VIEJAS / AYER ABIERTAS */
+
+@media (min-width: 769px) {
+    body.modo-deslizando .recuerdo-bloqueado,
+    body.modo-deslizando #ayer {
+        width: 500px !important;
+        height: 700px !important;
+        min-height: 700px !important;
+
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+
+        padding: 24px !important;
+    }
+
+    body.modo-deslizando .recuerdo-bloqueado .contenido-combo,
+    body.modo-deslizando .recuerdo-bloqueado .contenido-recuerdo,
+    body.modo-deslizando #ayer .contenido-combo,
+    body.modo-deslizando #ayer .contenido-recuerdo {
+        width: 100% !important;
+        height: 100% !important;
+
+        box-sizing: border-box !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        gap: 18px !important;
+        margin: 0 !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+
+    body.modo-deslizando .recuerdo-bloqueado img,
+    body.modo-deslizando #ayer img {
+        max-width: 90% !important;
+        max-height: 240px !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        object-fit: contain !important;
+
+        margin: 0 auto !important;
+    }
+
+    body.modo-deslizando .recuerdo-bloqueado iframe,
+    body.modo-deslizando #ayer iframe {
+        width: 95% !important;
+        flex-shrink: 0 !important;
+    }
+
+    body.modo-deslizando .recuerdo-bloqueado p,
+    body.modo-deslizando #ayer p {
+        flex-shrink: 0 !important;
+    }
+}
+
+/* FIX PORTADAS CERRADAS EN MODO DESLIZANDO */
+
+body.modo-deslizando .tarjeta-cerrada .portada-recuerdo,
+body.modo-deslizando .recuerdo-bloqueado.tarjeta-cerrada .portada-recuerdo,
+body.modo-deslizando #ayer .portada-recuerdo {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-radius: 20px !important;
+    box-shadow: none !important;
+}
+
+/* QUE EL CARTEL DE AYER NO SE ACHIQUE POR EL FIX */
+body.modo-deslizando #ayer .imagen-ayer {
+    position: absolute !important;
+
+    top: 45% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: 90% !important;
+    height: auto !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+}

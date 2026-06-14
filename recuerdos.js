@@ -1,9 +1,7 @@
 const recuerdos = [
     
 
-    {
-
-    tipo: "combo",
+    {   tipo: "combo",
 
     contenido: [
         {
@@ -55,6 +53,43 @@ const recuerdos = [
         {
          tipo:"gif",
          gif: "assets/imagenes/footer-flores.gif",   
+
+        },
+    
+    ]
+
+
+},
+
+{   tipo: "combo",
+
+    contenido: [
+
+        {tipo:"texto",
+        texto: "bienvenida al dia tres, hoy quiero dedicarte esta cancion...",
+        },
+
+        {
+         tipo:"spotify",
+         url: "https://open.spotify.com/intl-es/track/0YNtAadZvKBBEFARtfoCV8?si=b22bedbccd034d9f",   
+
+        },
+
+         {
+         tipo:"gif",
+         gif: "assets/imagenes/cinna-corazones.gif",   
+
+        },
+
+        {
+            tipo:"texto",
+            texto: "te amo mucho mili",
+
+        },
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-rosas.gif",   
 
         },
     

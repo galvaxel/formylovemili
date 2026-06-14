@@ -127,18 +127,24 @@ function volverAHoy() {
         animacionInercia = null;
     }
 
+    // Reconstruye el carrusel para cerrar recuerdos viejos / AYER abiertos
+    generarTarjetas();
+
     document.body.classList.remove("modo-deslizando");
     document.body.classList.add("modo-hoy");
 
-    // primer centrado: empieza a llevarte a HOY
+    // Recentrado después de regenerar
     setTimeout(() => {
-        centrarHoy(true);
+        centrarHoy(false);
     }, 80);
 
-    // segundo centrado: corrige cuando la animación de tamaño ya terminó
     setTimeout(() => {
         centrarHoy(true);
-    }, 360);
+    }, 260);
+
+    setTimeout(() => {
+        centrarHoy(true);
+    }, 520);
 }
 
 function activarModoHoyInicial() {
