@@ -156,6 +156,36 @@ function activarModoHoyInicial() {
     }, 120);
 }
 
+
+function crearBotonCerrarHoy() {
+    if (document.getElementById("boton-cerrar-hoy")) return;
+
+    const boton = document.createElement("button");
+
+    boton.id = "boton-cerrar-hoy";
+
+    boton.innerHTML = `
+        <img src="assets/imagenes/boton-cerrar-hoy.gif" alt="Cerrar hoy">
+    `;
+
+    boton.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        localStorage.removeItem("hoyAbierto");
+        document.body.classList.remove("hoy-abierto");
+
+        generarTarjetas();
+
+        setTimeout(() => {
+            document.body.classList.remove("modo-deslizando");
+            document.body.classList.add("modo-hoy");
+            centrarHoy(false);
+        }, 80);
+    });
+
+    document.body.appendChild(boton);
+}
+
 function crearBotonHome() {
     if (document.getElementById("boton-home")) return;
 
@@ -582,17 +612,20 @@ carrusel.innerHTML += `
 
     activarClicks();
 
-    if (indiceHoyGuardado !== null && Number(indiceHoyGuardado) === indiceHoy) {
-        const hoy = document.getElementById("hoy");
+const indiceHoyGuardadoActual = localStorage.getItem("hoyAbierto");
 
-        if (hoy) {
-            mostrarRecuerdo(hoy, indiceHoy);
-        }
+if (indiceHoyGuardadoActual !== null && Number(indiceHoyGuardadoActual) === indiceHoy) {
+    const hoy = document.getElementById("hoy");
+
+    if (hoy) {
+        mostrarRecuerdo(hoy, indiceHoy);
     }
+}
 
     iniciarTimer();
 
 crearBotonHome();
+crearBotonCerrarHoy();
 escucharRacha();
 activarModoHoyInicial();
 }
@@ -794,6 +827,10 @@ function renderContenido(item) {
 function mostrarRecuerdo(tarjeta, indice) {
 
     tarjeta.classList.remove("tarjeta-hoy-cerrada");
+
+    if (tarjeta.id === "hoy") {
+    document.body.classList.add("hoy-abierto");
+}
 
 
     const recuerdo = recuerdos[indice];
