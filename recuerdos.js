@@ -97,6 +97,38 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+
+    contenido: [
+
+        {tipo:"texto",
+        texto: "espero que no te moleste que suba esta foto que nos sacaron hoy...",
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/pompom-macaron-petitchat.jpg",   
+
+        },
+
+         {
+         tipo:"spotify",
+         url: "https://open.spotify.com/intl-es/track/3Zq2naJ92TwUhC32Iov3a6?si=5c6ad4ec79f24ef3",   
+
+        },
+
+        {
+            tipo:"texto",
+            texto: "te amo ₍ᐡ・ﻌ・ᐡ₎♡₍^. .^₎⟆",
+
+        },
+
+    
+    ]
+
+
+},
     
 
     
