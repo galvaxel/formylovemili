@@ -6,6 +6,24 @@ function reproducirSonido(ruta, volumen = 0.55) {
     audio.play().catch(() => {});
 }
 
+const audiosDeRecuerdos = {};
+
+function alternarSonidoRecuerdo(ruta, volumen = 0.55) {
+    if (!audiosDeRecuerdos[ruta]) {
+        audiosDeRecuerdos[ruta] = new Audio(ruta);
+        audiosDeRecuerdos[ruta].volume = volumen;
+    }
+
+    const audio = audiosDeRecuerdos[ruta];
+
+    if (!audio.paused) {
+        audio.pause();
+        return;
+    }
+
+    audio.play().catch(() => {});
+}
+
 
 //TARJETAS DE CARRUSELLL
 
@@ -770,17 +788,37 @@ function renderContenido(item) {
         return recuerdoError("Este pedacito del recuerdo está incompleto :(");
     }
 
-    if (item.tipo === "imagen") {
-        if (!item.imagen) return recuerdoError("Falta la imagen :(");
+if (item.tipo === "imagen") {
+    if (!item.imagen) return recuerdoError("Falta la imagen :(");
 
-        return `<img src="${item.imagen}" alt="recuerdo">`;
+    if (item.sonido) {
+        return `
+            <img
+                src="${item.imagen}"
+                alt="recuerdo"
+                onclick="event.stopPropagation(); alternarSonidoRecuerdo('${item.sonido}', 0.55)"
+            >
+        `;
     }
 
-    if (item.tipo === "gif") {
-        if (!item.gif) return recuerdoError("Falta el gif :(");
+    return `<img src="${item.imagen}" alt="recuerdo">`;
+}
 
-        return `<img src="${item.gif}" alt="gif del recuerdo">`;
+if (item.tipo === "gif") {
+    if (!item.gif) return recuerdoError("Falta el gif :(");
+
+    if (item.sonido) {
+        return `
+            <img
+                src="${item.gif}"
+                alt="gif del recuerdo"
+                onclick="event.stopPropagation(); alternarSonidoRecuerdo('${item.sonido}', 0.55)"
+            >
+        `;
     }
+
+    return `<img src="${item.gif}" alt="gif del recuerdo">`;
+}
 
     if (item.tipo === "texto") {
         if (!item.texto) return recuerdoError("Falta el texto :(");

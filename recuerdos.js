@@ -129,6 +129,38 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+
+    contenido: [
+
+        {tipo:"texto",
+        texto: "HOY EMPIEZA NUESTRO PRIMER MUNDIAL JUNTOS",
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/kitty-daniel-argentina.png",
+         sonido: "assets/sonidos/esta-locura.mp3"   
+
+        },
+
+        {
+            tipo:"texto",
+            texto: "me hace feliz vivir cosas nuevas con vos, te amo :3",
+
+        },
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/argentina-flag.gif",   
+
+        },
+
+    
+    ]
+
+
+},
     
 
     
