@@ -344,7 +344,11 @@ function registrarAperturaDeHoy(indiceHoy) {
             datos.mesVidas = mesActual;
         }
 
-        if (datos.ultimoIndiceCheck === indiceHoy) {
+        const ultimoIndice = Number(datos.ultimoIndiceCheck);
+
+        // CLAVE: si este día ya fue abierto, NO suma.
+        // También evita sumar si por alguna razón se abre un índice viejo.
+        if (!Number.isNaN(ultimoIndice) && indiceHoy <= ultimoIndice) {
             return datos;
         }
 
@@ -354,7 +358,7 @@ function registrarAperturaDeHoy(indiceHoy) {
             return datos;
         }
 
-        const diasSaltados = indiceHoy - datos.ultimoIndiceCheck - 1;
+        const diasSaltados = indiceHoy - ultimoIndice - 1;
 
         if (diasSaltados <= 0) {
             datos.rachaActual = (datos.rachaActual || 0) + 1;
