@@ -161,6 +161,38 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+
+    contenido: [
+
+        {tipo:"texto",
+        texto: "hoy quiero recordarte algo muy importante, y se que soy pesado con esto :3",
+        },
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/gatos-kiss.gif",  
+
+        },
+
+        {
+            tipo:"texto",
+            texto: "te amo mucho milagros herrera, FALTA POQUITO...",
+
+        },
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-aniflores.gif",   
+
+        },
+
+    
+    ]
+
+
+},
+    
     
 
     
