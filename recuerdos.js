@@ -192,6 +192,39 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+
+    contenido: [
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/nap-time.png",  
+
+        },
+
+                {tipo:"texto",
+                texto: "NAP TIME, love you miamor <3",
+        },
+
+        {
+            tipo:"spotify",
+            url: "https://open.spotify.com/intl-es/track/3zsRP8rH1kaIAo9fmiP4El?si=b0b90a3581734f06",
+            
+
+        },
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-estrellas.gif",   
+
+        },
+
+    
+    ]
+
+
+}
     
     
 
