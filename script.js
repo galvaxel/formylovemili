@@ -867,27 +867,18 @@ if (item.tipo === "gif") {
 }
 
 function aplicarFondoRecuerdo(tarjeta, fondo) {
-    if (!fondo) {
-        tarjeta.classList.remove("tarjeta-con-fondo");
+    const fondoDefault = "assets/imagenes/hoy-portada.webp";
 
-        tarjeta.style.removeProperty("background-image");
-        tarjeta.style.removeProperty("background-size");
-        tarjeta.style.removeProperty("background-position");
-        tarjeta.style.removeProperty("background-repeat");
-        tarjeta.style.removeProperty("background-color");
-
-        return;
-    }
+    const fondoFinal = fondo || fondoDefault;
 
     tarjeta.classList.add("tarjeta-con-fondo");
 
-    tarjeta.style.setProperty("background-image", `url("${fondo}")`, "important");
+    tarjeta.style.setProperty("background-image", `url("${fondoFinal}")`, "important");
     tarjeta.style.setProperty("background-size", "cover", "important");
     tarjeta.style.setProperty("background-position", "center", "important");
     tarjeta.style.setProperty("background-repeat", "no-repeat", "important");
     tarjeta.style.setProperty("background-color", "transparent", "important");
 }
-
 function mostrarRecuerdo(tarjeta, indice) {
 
     tarjeta.classList.remove("tarjeta-hoy-cerrada");
