@@ -866,14 +866,35 @@ if (item.tipo === "gif") {
     return recuerdoError(`Tipo de recuerdo no reconocido: ${escaparHTML(item.tipo)}`);
 }
 
+function aplicarFondoRecuerdo(tarjeta, fondo) {
+    if (!fondo) {
+        tarjeta.classList.remove("tarjeta-con-fondo");
+
+        tarjeta.style.removeProperty("background-image");
+        tarjeta.style.removeProperty("background-size");
+        tarjeta.style.removeProperty("background-position");
+        tarjeta.style.removeProperty("background-repeat");
+        tarjeta.style.removeProperty("background-color");
+
+        return;
+    }
+
+    tarjeta.classList.add("tarjeta-con-fondo");
+
+    tarjeta.style.setProperty("background-image", `url("${fondo}")`, "important");
+    tarjeta.style.setProperty("background-size", "cover", "important");
+    tarjeta.style.setProperty("background-position", "center", "important");
+    tarjeta.style.setProperty("background-repeat", "no-repeat", "important");
+    tarjeta.style.setProperty("background-color", "transparent", "important");
+}
+
 function mostrarRecuerdo(tarjeta, indice) {
 
     tarjeta.classList.remove("tarjeta-hoy-cerrada");
 
     if (tarjeta.id === "hoy") {
-    document.body.classList.add("hoy-abierto");
-}
-
+        document.body.classList.add("hoy-abierto");
+    }
 
     const recuerdo = recuerdos[indice];
 
@@ -881,6 +902,8 @@ function mostrarRecuerdo(tarjeta, indice) {
         tarjeta.innerHTML = recuerdoError("Todavía no hay recuerdo para este día :(");
         return;
     }
+
+    aplicarFondoRecuerdo(tarjeta, recuerdo.fondo);
 
     let contenidoHTML = "";
 
@@ -896,25 +919,25 @@ function mostrarRecuerdo(tarjeta, indice) {
 
         const titulo = tarjeta.querySelector("h2")?.innerText || "";
 
-if (
-    tarjeta.id === "hoy" ||
-    tarjeta.id === "ayer" ||
-    tarjeta.classList.contains("recuerdo-bloqueado")
-) {
-    tarjeta.innerHTML = `
-        <div class="contenido-combo ${tarjeta.id === "hoy" ? "contenido-combo-hoy" : ""}">
-            ${contenido}
-        </div>
-    `;
-} else {
-    tarjeta.innerHTML = `
-        <h2>${titulo}</h2>
+        if (
+            tarjeta.id === "hoy" ||
+            tarjeta.id === "ayer" ||
+            tarjeta.classList.contains("recuerdo-bloqueado")
+        ) {
+            tarjeta.innerHTML = `
+                <div class="contenido-combo ${tarjeta.id === "hoy" ? "contenido-combo-hoy" : ""}">
+                    ${contenido}
+                </div>
+            `;
+        } else {
+            tarjeta.innerHTML = `
+                <h2>${titulo}</h2>
 
-        <div class="contenido-combo">
-            ${contenido}
-        </div>
-    `;
-}
+                <div class="contenido-combo">
+                    ${contenido}
+                </div>
+            `;
+        }
 
         return;
     }
@@ -979,11 +1002,11 @@ if (
             contenidoHTML = `
                 <div class="contenido-recuerdo">
                     <iframe
-                 class="spotify-embed"
-                src="${convertirSpotify(recuerdo.url)}"
-                 height="80"
-                loading="lazy">
-                        </iframe>
+                        class="spotify-embed"
+                        src="${convertirSpotify(recuerdo.url)}"
+                        height="80"
+                        loading="lazy">
+                    </iframe>
                 </div>
 
                 ${recuerdo.texto ? `<p>${escaparHTML(recuerdo.texto)}</p>` : ""}
@@ -1014,27 +1037,25 @@ if (
 
     const titulo = tarjeta.querySelector("h2")?.innerText || "";
 
-if (
-    tarjeta.id === "hoy" ||
-    tarjeta.id === "ayer" ||
-    tarjeta.classList.contains("recuerdo-bloqueado")
-) {
-    tarjeta.innerHTML = `
-        ${contenidoHTML}
-    `;
-} else if (titulo) {
-    tarjeta.innerHTML = `
-        <h2>${titulo}</h2>
-        ${contenidoHTML}
-    `;
-} else {
-    tarjeta.innerHTML = `
-        ${contenidoHTML}
-    `;
+    if (
+        tarjeta.id === "hoy" ||
+        tarjeta.id === "ayer" ||
+        tarjeta.classList.contains("recuerdo-bloqueado")
+    ) {
+        tarjeta.innerHTML = `
+            ${contenidoHTML}
+        `;
+    } else if (titulo) {
+        tarjeta.innerHTML = `
+            <h2>${titulo}</h2>
+            ${contenidoHTML}
+        `;
+    } else {
+        tarjeta.innerHTML = `
+            ${contenidoHTML}
+        `;
+    }
 }
-}
-
-
 
 // CLICKS DE TARJETAS
 

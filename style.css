@@ -1818,3 +1818,42 @@ body.modo-deslizando #boton-cerrar-hoy {
         width: 78px;
     }
 }
+
+/* FONDOS PERSONALIZADOS POR RECUERDO */
+
+.tarjeta.tarjeta-con-fondo {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden !important;
+}
+
+.tarjeta.tarjeta-con-fondo .contenido-combo,
+.tarjeta.tarjeta-con-fondo .contenido-recuerdo {
+    background: transparent !important;
+}
+
+/* ACHICAR GIF ESPECÍFICO DE UN RECUERDO */
+
+/* ACHICAR GIF SYLBREON */
+
+#hoy .contenido-combo-hoy img[src*="sylbreon-love2.gif"],
+.contenido-combo img[src*="sylbreon-love2.gif"],
+.contenido-recuerdo img[src*="sylbreon-love2.gif"],
+.tarjeta img[src*="sylbreon-love2.gif"] {
+    width: 285px !important;
+    max-width: 300px !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+    margin: 0 auto !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}

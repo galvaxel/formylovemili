@@ -224,7 +224,44 @@ const recuerdos = [
     ]
 
 
-}
+},
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-sigilismo.jpg",
+
+    contenido: [
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/footer-sigilismo.png",   
+
+        },
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/kisu-teamo.webp",  
+
+        },
+
+                {tipo:"texto",
+                texto: "｡ ₊°༺❤︎༻°₊ ｡ te amo milagros 𓂃 ࣪˖ ִֶ♱ ྀིྀ",
+        },
+
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/sylbreon-love2.gif",   
+
+        },
+
+    
+    ]
+
+
+},
     
     
 
