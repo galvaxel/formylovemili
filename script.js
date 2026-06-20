@@ -867,7 +867,7 @@ if (item.tipo === "gif") {
 }
 
 function aplicarFondoRecuerdo(tarjeta, fondo) {
-    const fondoDefault = "assets/imagenes/hoy-portada.webp";
+    const fondoDefault = "assets/imagenes/fondo-hoy-abierto.webp";
 
     const fondoFinal = fondo || fondoDefault;
 
