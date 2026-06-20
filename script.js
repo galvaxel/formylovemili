@@ -830,6 +830,14 @@ if (item.tipo === "gif") {
         return `<p>${escaparHTML(item.texto)}</p>`;
     }
 
+    if (item.tipo === "ascii") {
+    if (!item.texto) return recuerdoError("Falta el ascii :(");
+
+    return `
+        <pre class="ascii-recuerdo">${escaparHTML(item.texto)}</pre>
+    `;
+}
+
     if (item.tipo === "video") {
         if (!item.video) return recuerdoError("Falta el video :(");
 

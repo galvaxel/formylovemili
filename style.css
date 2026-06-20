@@ -1842,7 +1842,51 @@ body.modo-deslizando #boton-cerrar-hoy {
 .contenido-combo img[src*="sylbreon-love2.gif"],
 .contenido-recuerdo img[src*="sylbreon-love2.gif"],
 .tarjeta img[src*="sylbreon-love2.gif"] {
-    width: 285px !important;
+    width: 260px !important;
+    max-width: 300px !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+    margin: 0 auto !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.ascii-recuerdo {
+    font-family: "Courier New", monospace !important;
+
+    white-space: pre !important;
+    text-align: center;
+
+    font-size: 0.75rem;
+    line-height: 1.05;
+
+    color: #3f3338;
+
+    margin: 8px auto !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* ACHICAR GIF SYLBREON */
+
+#hoy .contenido-combo-hoy img[src*="teamo-mili.gif"],
+.contenido-combo img[src*="teamo-mili.gif"],
+.contenido-recuerdo img[src*="teamo-mili.gif"],
+.tarjeta img[src*="teamo-mili.gif"] {
+    width: 300px !important;
     max-width: 300px !important;
 
     height: auto !important;

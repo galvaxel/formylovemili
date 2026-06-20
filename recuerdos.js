@@ -262,6 +262,49 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-sakura-neko.jpg",
+
+    contenido: [
+
+
+                        {
+         tipo:"gif",
+         gif: "assets/imagenes/teamo-mili.gif",   
+
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/mc-kitty-us.png",  
+
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/footer-stars.png",  
+
+        },
+
+
+         {
+         tipo:"imagen",
+         imagen: "assets/imagenes/footer-sanrio.png",  
+
+        },
+
+
+
+
+
+
+
+    
+    ]
+
+
+},
     
     
 
