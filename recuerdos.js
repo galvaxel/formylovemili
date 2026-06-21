@@ -305,6 +305,68 @@ const recuerdos = [
 
 
 },
+
+
+{   tipo: "combo",
+    ///fondo:"assets/imagenes/fondo-sakura-neko.jpg",
+
+    contenido: [
+
+
+                        {
+         tipo:"gif",
+         gif: "assets/imagenes/barra-cute.gif",   
+
+        },
+
+
+        {tipo:"texto",
+        texto: "ESPERO QUE HAYAS DISFRUTADO TU...",
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/kitty-familia.webp",  
+
+        },
+
+                {tipo:"texto",
+        texto: "✧⋆｡♡ NOVIO REVEAL ♡｡⋆✧ ",
+        },
+
+        
+                {tipo:"texto",
+        texto: "(˶ ˘ ³˘)ˆᵕ ˆ˶)",
+        },
+
+
+
+
+        
+         {
+         tipo:"gif",
+         gif: "assets/imagenes/barra-cute2.gif",  
+
+        },
+
+        
+                 {
+         tipo:"imagen",
+         imagen: "assets/imagenes/pie-flores.png",  
+
+        },
+
+
+
+
+
+
+
+    
+    ]
+
+
+},
     
     
 
