@@ -335,7 +335,7 @@ const recuerdos = [
         },
 
         
-                {tipo:"texto",
+         {tipo:"texto",
         texto: "(˶ ˘ ³˘)ˆᵕ ˆ˶)",
         },
 
@@ -363,6 +363,45 @@ const recuerdos = [
 
 
     
+    ]
+
+
+},
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-heartopia.jpg",
+    contenido: [
+
+
+
+
+         {tipo:"texto",
+        texto: "me llena de felicidad encontrar pasatiempos que nos gusten a los dos y disfrutarlos juntos",
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/heartopia.png",  
+
+        },
+
+                 {tipo:"texto",
+        texto: "realmente gracias por tanto mi preciosa milagros",
+        },
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/iloveu.gif",  
+
+        },
+
+                         {tipo:"texto",
+        texto: "૮ ˶ᵔ ᵕ ᵔ˶ ა ♡ ૮₍´˶• . • ⑅ ₎ა",
+        },
+
+
+
+
     ]
 
 
