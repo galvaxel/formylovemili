@@ -824,11 +824,13 @@ if (item.tipo === "gif") {
     return `<img src="${item.gif}" alt="gif del recuerdo">`;
 }
 
-    if (item.tipo === "texto") {
-        if (!item.texto) return recuerdoError("Falta el texto :(");
+if (item.tipo === "texto") {
+    if (!item.texto) return recuerdoError("Falta el texto :(");
 
-        return `<p>${escaparHTML(item.texto)}</p>`;
-    }
+    const color = item.color ? ` style="color: ${item.color} !important;"` : "";
+
+    return `<p${color}>${item.texto}</p>`;
+}
 
     if (item.tipo === "ascii") {
     if (!item.texto) return recuerdoError("Falta el ascii :(");

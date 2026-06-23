@@ -410,6 +410,7 @@ const recuerdos = [
 {   tipo: "combo",
     fondo:"assets/imagenes/fondo-flores-blancas.jpg",
 
+
     contenido: [
 
 
@@ -421,7 +422,7 @@ const recuerdos = [
 
         {
          tipo:"imagen",
-         imagen: "assets/imagenes/ositos-noche.png",   
+         imagen: "assets/imagenes/ositos-noche2.png",   
 
         },
 
@@ -432,7 +433,8 @@ const recuerdos = [
 
         },
 
-                                 {tipo:"texto",
+        {tipo:"texto",
+        color: "#fff099",
         texto: "ᰔ love u mylove ᰔ",
         },
 
