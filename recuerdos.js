@@ -294,12 +294,6 @@ const recuerdos = [
 
         },
 
-
-
-
-
-
-
     
     ]
 
@@ -338,11 +332,7 @@ const recuerdos = [
          {tipo:"texto",
         texto: "(˶ ˘ ³˘)ˆᵕ ˆ˶)",
         },
-
-
-
-
-        
+      
          {
          tipo:"gif",
          gif: "assets/imagenes/barra-cute2.gif",  
@@ -357,12 +347,6 @@ const recuerdos = [
         },
 
 
-
-
-
-
-
-    
     ]
 
 
@@ -444,11 +428,6 @@ const recuerdos = [
 
 
 },
-    
-    
-
-    
-
     
 
     

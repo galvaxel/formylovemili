@@ -1842,8 +1842,8 @@ body.modo-deslizando #boton-cerrar-hoy {
 .contenido-combo img[src*="sylbreon-love2.gif"],
 .contenido-recuerdo img[src*="sylbreon-love2.gif"],
 .tarjeta img[src*="sylbreon-love2.gif"] {
-    width: 260px !important;
-    max-width: 300px !important;
+    width: 200px !important;
+    max-width: 200px !important;
 
     height: auto !important;
     max-height: none !important;
@@ -1880,7 +1880,7 @@ body.modo-deslizando #boton-cerrar-hoy {
     overflow-x: auto;
 }
 
-/* ACHICAR GIF SYLBREON */
+/* ACHICAR GIF texto MILI TEAMO */
 
 #hoy .contenido-combo-hoy img[src*="teamo-mili.gif"],
 .contenido-combo img[src*="teamo-mili.gif"],
@@ -1890,6 +1890,61 @@ body.modo-deslizando #boton-cerrar-hoy {
     max-width: 300px !important;
 
     height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+    margin: 0 auto !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* TAMAÑO ESPECIFICO DE GIFS EN TARJETAS VIEJAS ABIERTAS */
+
+body.modo-deslizando .recuerdo-bloqueado .contenido-combo img[src*="sylbreon-love2.gif"],
+body.modo-deslizando .recuerdo-bloqueado .contenido-recuerdo img[src*="sylbreon-love2.gif"],
+body.modo-deslizando #ayer .contenido-combo img[src*="sylbreon-love2.gif"],
+body.modo-deslizando #ayer .contenido-recuerdo img[src*="sylbreon-love2.gif"],
+#hoy .contenido-combo-hoy img[src*="sylbreon-love2.gif"],
+.contenido-combo img[src*="sylbreon-love2.gif"],
+.contenido-recuerdo img[src*="sylbreon-love2.gif"],
+.tarjeta img[src*="sylbreon-love2.gif"] {
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+    margin: 0 auto !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+body.modo-deslizando .recuerdo-bloqueado .contenido-combo img[src*="teamo-mili.gif"],
+body.modo-deslizando .recuerdo-bloqueado .contenido-recuerdo img[src*="teamo-mili.gif"],
+body.modo-deslizando #ayer .contenido-combo img[src*="teamo-mili.gif"],
+body.modo-deslizando #ayer .contenido-recuerdo img[src*="teamo-mili.gif"],
+#hoy .contenido-combo-hoy img[src*="teamo-mili.gif"],
+.contenido-combo img[src*="teamo-mili.gif"],
+.contenido-recuerdo img[src*="teamo-mili.gif"],
+.tarjeta img[src*="teamo-mili.gif"] {
+    width: 250px !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+
+    height: auto !important;
+    min-height: auto !important;
     max-height: none !important;
 
     object-fit: contain !important;
