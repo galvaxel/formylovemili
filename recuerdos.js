@@ -406,6 +406,42 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-flores-blancas.jpg",
+
+    contenido: [
+
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-estrellas.gif",  
+
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/ositos-noche.png",   
+
+        },
+
+        {
+            tipo:"spotify",
+            url: "https://open.spotify.com/intl-es/track/6VhuP99TE6gYNQRJIlAWFD?si=a8e4953e65354811",
+            
+
+        },
+
+                                 {tipo:"texto",
+        texto: "ᰔ love u mylove ᰔ",
+        },
+
+
+    
+    ]
+
+
+},
     
     
 
