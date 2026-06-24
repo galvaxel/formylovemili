@@ -428,6 +428,48 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-mc.webp",
+
+
+    contenido: [
+
+
+                {tipo:"texto",
+        color: "hsl(205, 76%, 60%)",
+        texto: "hola mi amor, te invito a festejar hoy el cumple de mesi!!",
+        },
+
+
+
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/katdance-2.gif",   
+
+        },
+
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-globos.gif",  
+
+        },
+
+                {tipo:"texto",
+        color: "hsl(205, 76%, 60%)",
+        texto: "♡✧˚｡♡˚te amo mucho, gracias por estar siempre ♡✧˚⋆｡♡˚",
+        },
+
+
+    
+    ]
+
+
+},
     
 
     
