@@ -827,17 +827,20 @@ if (item.tipo === "gif") {
 if (item.tipo === "texto") {
     if (!item.texto) return recuerdoError("Falta el texto :(");
 
-    const color = item.color ? ` style="color: ${item.color} !important;"` : "";
+    const clases = [];
 
-    return `<p${color}>${item.texto}</p>`;
-}
+    if (item.subtitulo) {
+        clases.push("texto-subtitulo");
+    }
 
-    if (item.tipo === "ascii") {
-    if (!item.texto) return recuerdoError("Falta el ascii :(");
+    if (item.clase) {
+        clases.push(item.clase);
+    }
 
-    return `
-        <pre class="ascii-recuerdo">${escaparHTML(item.texto)}</pre>
-    `;
+    const classHTML = clases.length > 0 ? ` class="${clases.join(" ")}"` : "";
+    const colorHTML = item.color ? ` style="color: ${item.color} !important;"` : "";
+
+    return `<p${classHTML}${colorHTML}>${item.texto}</p>`;
 }
 
     if (item.tipo === "video") {

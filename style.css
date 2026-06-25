@@ -1956,3 +1956,47 @@ body.modo-deslizando #ayer .contenido-recuerdo img[src*="teamo-mili.gif"],
     background: transparent !important;
     box-shadow: none !important;
 }
+
+/* TEXTO CON FONDO TIPO SUBTITULO OSCURO */
+
+.texto-subtitulo {
+    display: inline-block !important;
+
+    background: rgba(0, 0, 0, 0.40) !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    padding: 7px 13px !important;
+    border-radius: 10px !important;
+
+    color: #fff6fb !important;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.75) !important;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.22) !important;
+
+    max-width: 88% !important;
+    margin: 8px auto !important;
+}
+
+#hoy .contenido-combo-hoy img[src*="header-ascii.gif"],
+.contenido-combo img[src*="header-ascii.gif"],
+.contenido-recuerdo img[src*="header-ascii.gif"],
+.tarjeta img[src*="header-ascii.gif"] {
+    width: 350px !important;
+    max-width: 500px !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+    margin: 0 auto !important;
+
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}

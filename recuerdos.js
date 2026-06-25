@@ -470,6 +470,52 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-work.jpg",
+
+
+    contenido: [
+
+
+        
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/header-ascii.gif",  
+        
+
+        },
+
+
+                {tipo:"texto",
+        color: "hsl(308, 53%, 81%)",
+        subtitulo: true,
+        texto: "hola mi amor, pese a estar sin internet tengo a mi empleada trabajando 24/7 para que tengas tus tarjetitas al día",
+        },
+
+
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/pusheenwork.png",   
+
+        },
+
+
+
+                {tipo:"texto",
+        color: "hsl(308, 53%, 81%)",
+        subtitulo: true,
+        texto: "gracias por la paciencia, te amo :3",
+        },
+
+
+    
+    ]
+
+
+},
     
 
     
