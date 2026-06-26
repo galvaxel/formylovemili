@@ -516,6 +516,59 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-cinaestrella.jpg",
+
+
+    contenido: [
+
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/cinna-ippy.gif",
+          ancho:"150px"
+
+        },
+
+
+
+        {
+            tipo:"spotify",
+            url: "https://open.spotify.com/intl-es/track/1lORkxEMmsCZqhoxcmk3A3?si=be25bfd05cef4510",
+            
+
+        },
+
+                {
+         tipo:"imagen",
+         
+         imagen: "assets/imagenes/pusheen-2.png", 
+         
+         ancho:"200px"
+
+        },
+
+        {tipo:"texto",
+        color: "#3a2a39",
+        texto: "axel te dedica esta canción y dijo que te digamos que te ama mucho o algo así, no se re pesado miau",
+        },
+
+                        {
+         tipo:"imagen",
+         
+         imagen: "assets/imagenes/futer-cutee.png", 
+         
+         ancho:"400px"
+
+        },
+
+
+    
+    ]
+
+
+},
     
 
     

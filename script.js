@@ -29,7 +29,7 @@ function alternarSonidoRecuerdo(ruta, volumen = 0.55) {
 
 const carrusel = document.getElementById("carrusel");
 
-const MODO_PRUEBA = false;
+const MODO_PRUEBA = true;
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
@@ -795,33 +795,57 @@ function renderContenido(item) {
 if (item.tipo === "imagen") {
     if (!item.imagen) return recuerdoError("Falta la imagen :(");
 
+    const estilos = [];
+
+    if (item.ancho) estilos.push(`width: ${item.ancho} !important`);
+    if (item.alto) estilos.push(`height: ${item.alto} !important`);
+    if (item.maxAncho) estilos.push(`max-width: ${item.maxAncho} !important`);
+    if (item.maxAlto) estilos.push(`max-height: ${item.maxAlto} !important`);
+
+    estilos.push("object-fit: contain !important");
+
+    const styleHTML = estilos.length > 0 ? ` style="${estilos.join("; ")}"` : "";
+
     if (item.sonido) {
         return `
             <img
                 src="${item.imagen}"
                 alt="recuerdo"
+                ${styleHTML}
                 onclick="event.stopPropagation(); alternarSonidoRecuerdo('${item.sonido}', 0.55)"
             >
         `;
     }
 
-    return `<img src="${item.imagen}" alt="recuerdo">`;
+    return `<img src="${item.imagen}" alt="recuerdo"${styleHTML}>`;
 }
 
 if (item.tipo === "gif") {
     if (!item.gif) return recuerdoError("Falta el gif :(");
+
+    const estilos = [];
+
+    if (item.ancho) estilos.push(`width: ${item.ancho} !important`);
+    if (item.alto) estilos.push(`height: ${item.alto} !important`);
+    if (item.maxAncho) estilos.push(`max-width: ${item.maxAncho} !important`);
+    if (item.maxAlto) estilos.push(`max-height: ${item.maxAlto} !important`);
+
+    estilos.push("object-fit: contain !important");
+
+    const styleHTML = estilos.length > 0 ? ` style="${estilos.join("; ")}"` : "";
 
     if (item.sonido) {
         return `
             <img
                 src="${item.gif}"
                 alt="gif del recuerdo"
+                ${styleHTML}
                 onclick="event.stopPropagation(); alternarSonidoRecuerdo('${item.sonido}', 0.55)"
             >
         `;
     }
 
-    return `<img src="${item.gif}" alt="gif del recuerdo">`;
+    return `<img src="${item.gif}" alt="gif del recuerdo"${styleHTML}>`;
 }
 
 if (item.tipo === "texto") {
