@@ -569,6 +569,49 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+    fondo:"assets/imagenes/fondo-margaritas.jpg",
+
+
+    contenido: [
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/corasones-up.gif",
+          ancho:"330px"
+
+        },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/michis-cutes.png",
+          ancho:"230px"
+
+        },
+
+
+
+        {tipo:"texto",
+        color: "#92a889",
+        texto: "°❀.࿔ ni todas las flores de este mundo lograrían alcanzar la belleza de tus ojos, ni su perfume igualar el embriagante aroma de tu piel, te amo mili. °❀.࿔*:･",
+        },
+
+                        {
+         tipo:"imagen",
+         
+         imagen: "assets/imagenes/footer-wmm.webp", 
+         
+         ancho:"300px"
+
+        },
+
+
+    
+    ]
+
+
+},
     
 
     
