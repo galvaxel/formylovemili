@@ -612,7 +612,61 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/1fondo-azul-castillo.jpg",
+
+
+    contenido: [
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/header-florblue.gif",
+   
+
+        },
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/us-gatitos.png",
+          ancho:"230px"
+
+        },
+        
+        
+      {tipo:"texto",
+        color: "#c1caf4",
+        subtitulo: true, 
+            texto: " no sé cuántas vidas vamos ya, pero sé que en todas te pedí tu mano y te llevé al altar. ",
+     },
+
+                {tipo:"texto",
+        color: "#c1caf4",
+        subtitulo: true, 
+            texto: "esta no va a ser la excepción.",
+     },
+           {tipo:"texto",
+        color: "#c1caf4",
+        subtitulo: true, 
+            texto: "⋆｡☾ ﾟ｡⋆ te amo copito de nieve ⋆°｡⋆",
+     },
+
+
+
+
+
+        
+
+
     
+    ]
+
+
+},
+   
 
     
 ];
