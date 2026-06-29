@@ -667,6 +667,43 @@ const recuerdos = [
 
 },
    
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-chebe.jpg",
 
+
+    contenido: [
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/header-lunapesada.gif",
+   
+
+        },
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/chebe.png",
+          ancho:"300px"
+
+        },
+        
+        
+      {tipo:"spotify",
+        url: "https://open.spotify.com/intl-es/track/0IktbUcnAGrvD03AWnz3Q8?si=f854168a0a164903",
+     },
+
+                {tipo:"texto",
+        color: "#b198c7",
+        subtitulo: true, 
+            texto: "𓆩 ℒ𝓸𝓿𝒆♡𝔂𝓸𝓾 𓆪",
+                }
+
+    ]
+
+
+},
     
 ];
