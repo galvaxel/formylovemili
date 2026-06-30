@@ -705,5 +705,47 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-verderosa.jpg",
+
+
+    contenido: [
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/conejitos-jeje.gif",
+         ancho: "200px"
+   
+
+        },
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/axelmili-pixel.webp",
+          ancho:"400px"
+
+        },
+        
+        
+
+                {tipo:"texto",
+        color: "#4c0c30", 
+            texto: "te amo milagros, gracias por este junio tan lindo juntos <3",
+    },
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-rosas.gif",
+          ancho:"450px"
+
+        },
+
+    ]
+
+
+},
     
 ];
