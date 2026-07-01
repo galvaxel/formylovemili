@@ -747,5 +747,52 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/dulsurafondo.png",
+
+
+    contenido: [
+
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/conejo-header.gif",
+        ancho: "330px"
+   
+
+        },
+
+                        {tipo:"texto",
+        color: "#4c0c30", 
+            texto: "que tengas un hermoso julio y feliz semana de la dulzura mi amor, espero que este mes este lleno de cosas dulces y ricas para vos!! (no seas como el conejito marron del header que esta triste pq le duele la panza de tanto comer golosinas)",
+    },
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/cinna-dulzura.png",
+          ancho:"340px"
+
+        },
+        
+        
+                        {tipo:"texto",
+        color: "#4c0c30", 
+            texto: "te amo mucho mili, falta poquito para abrazarnos y comernos a besos :3",
+    },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/candies-kitty.png",
+          ancho:"450px"
+
+        },
+
+    ]
+
+
+},
     
 ];
