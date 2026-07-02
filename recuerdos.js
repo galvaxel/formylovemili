@@ -794,5 +794,44 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-azulflor.jpg",
+
+
+    contenido: [
+
+
+
+         {tipo:"gif",
+         gif: "assets/imagenes/coras-raros.gif",
+                   ancho:"430px"
+   },  
+
+
+        {
+            tipo:"spotify",
+            url: "https://open.spotify.com/intl-es/track/1Omt5bfz1tZUCqd26HxbS0?si=20022d8371fe499a",
+            
+
+        },
+         {tipo:"texto",
+        color: "#ff9fd5", 
+            texto: "te amo. <3",
+    },
+        
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/miliyyo-cats.png",
+
+        },
+
+
+
+
+    ]
+
+
+},
     
 ];
