@@ -833,5 +833,44 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-fc.jpg",
+
+
+    contenido: [
+
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/rowfc.webp",
+          ancho:"180px"
+
+        },
+
+                 {tipo:"texto",
+        color: "#6379ec", 
+            texto: "tenía muchas ganas de que llegue este día para dedicarte esta canción, me cambiaste la vida y me hiciste vivir cosas que nunca imaginé que estaban destinadas para mi, gracias por todo. te amo mili.",
+    },
+
+
+        {
+            tipo:"spotify",
+            url: "https://open.spotify.com/intl-es/track/25MHcbjvSdcfTiFgbKJiZF?si=13210fae923e4086",
+            
+
+        },
+
+        
+        
+
+
+
+
+    ]
+
+
+},
     
 ];
