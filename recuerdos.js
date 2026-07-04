@@ -872,5 +872,49 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-lunasyl.jpg",
+
+
+    contenido: [
+
+                 {tipo:"gif",
+         gif: "assets/imagenes/barra-cute.gif",
+                   ancho:"430px"
+   },  
+
+                 {tipo:"texto",
+                     subtitulo: true,
+        color: "#ff56d5", 
+            texto: "hay días que no brillan tanto como otros y tu sonrisa es la única capaz de iluminarlos, por eso voy a perseguirla hasta el último latido de mi corazón",
+    },
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/cinnakiti-cats.jpg",
+          ancho:"240px"
+
+        },
+
+
+
+
+                 {tipo:"texto",
+                    subtitulo: true,
+        color: "#ff56d5", 
+            texto: "te amo mi budincito.",
+    },
+
+        
+        
+
+
+
+
+    ]
+
+
+},
     
 ];
