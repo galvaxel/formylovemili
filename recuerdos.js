@@ -851,7 +851,7 @@ const recuerdos = [
 
                  {tipo:"texto",
         color: "#6379ec", 
-            texto: "tenía muchas ganas de que llegue este día para dedicarte esta canción, me cambiaste la vida y me hiciste vivir cosas que nunca imaginé que estaban destinadas para mi, gracias por todo. te amo mili.",
+            texto: "hola, tenía muchas ganas de que llegue este día para dedicarte esta canción, me cambiaste la vida y me hiciste vivir cosas que nunca imaginé que estaban destinadas para mi, gracias por todo. te amo mili.",
     },
 
 
