@@ -916,5 +916,42 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-castillo.jpg",
+
+
+    contenido: [
+
+                 {tipo:"gif",
+         gif: "assets/imagenes/corasones-up.gif",
+                   ancho:"430px"
+   },  
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/golden-black.png",
+          ancho:"240px"
+
+        },
+
+{
+    tipo: "spotify",
+    url: "https://open.spotify.com/intl-es/track/3CV4lFELdziNM1OnHU8nwz?si=2e5be81bfcb14302",
+},  
+
+                     {tipo:"texto",
+                    subtitulo: true,
+        color: "#ca9eff", 
+            texto: "te amo princesa de mi corazón ˚ʚ♡ɞ˚",
+    },
+
+
+
+    ]
+
+
+},
     
 ];
