@@ -953,5 +953,39 @@ const recuerdos = [
 
 
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-nieve.jpg",
+
+
+    contenido: [
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/snow-jeje.gif",
+    ancho: "450px",
+
+        },
+
+
+
+                     {tipo:"texto",
+                    subtitulo: true,
+        color: "#9ec0ff", 
+            texto: "mi corazón siempre tendrá la calidez necesaria para arropar el tuyo, te amo mili. ૮₍ ˃ ⤙ ˂ ₎ა",
+    }, 
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/michis-frio.png",
+          ancho:"140px"
+
+        },
+
+
+
+    ]
+},
     
 ];
