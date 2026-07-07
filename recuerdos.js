@@ -987,5 +987,35 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-argy.jpg",
+
+
+    contenido: [
+
+         {tipo:"texto",
+         subtitulo: true,
+        color: "#9ec0ff", 
+            texto: "hoy fue nuestro primer partido mundialista de muchos, pase lo que pase estoy muy feliz de compartirlo con vos, te amo mi vida.",
+    }, 
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/argenpurin.png",
+          ancho:"300px"
+
+        },
+
+        {
+            tipo: "spotify",
+            url: "https://open.spotify.com/intl-es/track/6hBOT549vs8F9UBASUT7kj?si=ea148f7cd8c6452a",
+        },
+
+
+
+    ]
+},
     
 ];
