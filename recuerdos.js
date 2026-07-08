@@ -1017,5 +1017,49 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/floricolores-bg.jpg",
+
+
+    contenido: [
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/acosada-by-me.jpg",
+          ancho:"190px"
+
+        },
+
+                 {tipo:"texto",
+         subtitulo: true,
+        color: "#de7070", 
+            texto: "cada vez que te abrazo y cierro los ojos, encuentro en vos un refugio, y mi corazón recuerda que, por fin, encontró su hogar",
+    }, 
+
+
+                {
+            tipo: "spotify",
+            url: "https://open.spotify.com/intl-es/track/5kRPPEWFJIMox5qIkQkiz5?si=f8e4e67623c3456e",
+        },
+
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#de7070", 
+            texto: "₊˚｡⋆❆⋆｡˚₊ te amo copito de nieve ₊˚｡⋆❆⋆｡˚₊",
+    }, 
+
+
+
+
+
+
+
+
+
+    ]
+},
     
 ];
+
+
