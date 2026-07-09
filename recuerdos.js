@@ -1059,7 +1059,60 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-frmr.png",
+
+
+    contenido: [
+
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/corasones-up.gif",
+
+        },
+
+
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#eadc5a", 
+            texto: "me das paz, me das calma"
+        }, 
+
+                                 {tipo:"texto",
+         subtitulo: true,
+        color: "#f1292d", 
+            texto: "me das calor, me das amor"
+        }, 
+
+
+                                 {tipo:"texto",
+         subtitulo: true,
+        color: "#ea8509", 
+            texto: "y algo con lo que siempre soñé ilusionarme..."
+        }, 
+
+        {tipo:"texto",
+         subtitulo: true,
+        color: "#d263d2", 
+            texto: "un futuro juntos, te amo mili ꨄ︎"
+        }, 
+
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/fotito-gatohoy.jpg",
+          ancho:"150px"
+
+        },
+
+
+
+    ]
+},
     
 ];
 
 
+//
