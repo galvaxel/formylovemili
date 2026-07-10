@@ -1111,6 +1111,45 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/castillo-princesa-fondo.jpg",
+
+
+    contenido: [
+
+
+
+                        {
+         tipo:"gif",
+         gif: "assets/imagenes/header-ascii.gif",
+    ancho: "450px",
+
+        },
+
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#a5adbb", 
+            texto: "dato random que seguro no sabias:",
+    }, 
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/us-mediacats.png",
+          ancho:"190px"
+
+        },
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#a5adbb", 
+            texto: "en nuestra vida número 33 fue la primera vez que, bajo juramento, te entregué mi alma y mi vida, y desde esa vez no deje de hacerlo cada vez nos encontramos. te amo mi lady milagros✧ ⋆｡♡",
+    }, 
+
+
+
+
+    ]
+},
     
 ];
 
