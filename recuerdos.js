@@ -1142,7 +1142,7 @@ const recuerdos = [
                          {tipo:"texto",
          subtitulo: true,
         color: "#a5adbb", 
-            texto: "en nuestra vida número 33 fue la primera vez que, bajo juramento, te entregué mi alma y mi vida, y desde esa vez no deje de hacerlo cada vez nos encontramos. te amo mi lady milagros✧ ⋆｡♡",
+            texto: "en nuestra vida número 33 fue la primera vez que, bajo juramento, te entregué mi alma y vida, y desde entonces nunca dejamos de repetir este pacto cada vez que nos encontrabamos. te amo mi lady milagros✧ ⋆｡♡",
     }, 
 
 
