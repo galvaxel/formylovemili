@@ -1150,8 +1150,47 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/sanrio-room-fondo.jpg",
+
+
+    contenido: [
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/cinna-ippy.gif",
+         ancho: "110px",
+        },
+
+                                 {tipo:"texto",
+         subtitulo: true,
+        color: "#faf6c4", 
+            texto: "después de (espero) festejar... volvemos a ser estos. LE AGRADEZCO A LA VIDA POR TANTO.",
+    }, 
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/us-kitinap.gif",
+         ancho: "210px",
+        },
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#faf6c4", 
+            texto: "te amo milagritos <3",
+    }, 
+
+                    {
+         tipo:"gif",
+         gif: "assets/imagenes/footer-corazones.gif",
+         ancho: "200px",
+        },
+
+    ]
+},
     
 ];
 
 
-//
+//footer-corazones.gif
