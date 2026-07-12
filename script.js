@@ -29,7 +29,7 @@ function alternarSonidoRecuerdo(ruta, volumen = 0.55) {
 
 const carrusel = document.getElementById("carrusel");
 
-const MODO_PRUEBA = false;
+const MODO_PRUEBA = true;
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);

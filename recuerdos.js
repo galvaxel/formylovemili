@@ -1189,6 +1189,41 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-arg4.jpg",
+
+
+    contenido: [
+
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/esta-locura-cuarta.gif",
+         ancho: "260px",
+
+        },
+
+                                 {tipo:"texto",
+         subtitulo: true,
+        color: "#a4dcee", 
+            texto: "estoy disfrutando como nunca un mundial y, pase lo que pase, y ojalá pase lo que todos queremos... no podría estar más feliz de compartirlo y vivirlo con vos.",
+    }, 
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/ositos-arg.png",
+         ancho: "410px",
+        },
+                         {tipo:"texto",
+         subtitulo: true,
+        color: "#a4dcee", 
+            texto: "te amo mili, vos sos la estrella que me faltaba ☆",
+    }, 
+
+
+    ]
+},
     
 ];
 
