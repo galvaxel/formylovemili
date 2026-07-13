@@ -29,7 +29,28 @@ function alternarSonidoRecuerdo(ruta, volumen = 0.55) {
 
 const carrusel = document.getElementById("carrusel");
 
+
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+
 const MODO_PRUEBA = false;
+
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
+//BOTON PRUEBA BORON PRUEBA
 
 const FECHA_INICIO_REAL = new Date(2026, 5, 12, 19, 3, 0);
 const FECHA_INICIO_PRUEBA = new Date(2026, 4, 25, 19, 3, 0);
@@ -862,9 +883,21 @@ if (item.tipo === "texto") {
     }
 
     const classHTML = clases.length > 0 ? ` class="${clases.join(" ")}"` : "";
-    const colorHTML = item.color ? ` style="color: ${item.color} !important;"` : "";
+const estilos = [];
 
-    return `<p${classHTML}${colorHTML}>${item.texto}</p>`;
+if (item.color) {
+    estilos.push(`color: ${item.color} !important`);
+}
+
+if (item.tamano) {
+    estilos.push(`font-size: ${item.tamano} !important`);
+}
+
+const styleHTML = estilos.length > 0
+    ? ` style="${estilos.join("; ")}"`
+    : "";
+
+return `<p${classHTML}${styleHTML}>${item.texto}</p>`;
 }
 
     if (item.tipo === "video") {

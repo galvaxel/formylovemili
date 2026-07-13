@@ -1224,6 +1224,57 @@ const recuerdos = [
 
     ]
 },
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-playa-yellow.jpg",
+
+
+    contenido: [
+
+                        {
+         tipo:"gif",
+         gif: "assets/imagenes/shiny-heart-header.gif",
+                 ancho: "290px",
+
+        },
+
+    {tipo:"texto",
+        subtitulo: true,
+        color: "#d2bc8f", 
+        tamano: "0.95rem",
+        texto: ".𖥔 hay colores que no se pueden replicar, y después están los que aparecen solo cuando vos estás cerca",
+    },
+        {tipo:"texto",
+        subtitulo: true,
+        color: "#d2bc8f", 
+        tamano: "0.95rem",
+        texto: "hay silencios que se sienten vacíos, y después está el de acostarme con vos y que nuestros latidos sean nuestra canción de amor",
+    },
+        {tipo:"texto",
+        subtitulo: true,
+        color: "#d2bc8f", 
+        tamano: "0.95rem",
+        texto: "y el dulce sabor de tus besos que, desde el primero que nos dimos, me hizo darme cuenta de que el amor también podía tener gusto, te amo mili ⊹ ᰔ",
+    },
+
+                {
+         tipo:"gif",
+         gif: "assets/imagenes/mariamarillas-fly.gif",
+        ancho: "50px",
+
+        },
+
+
+
+                {
+         tipo:"imagen",
+         imagen: "assets/imagenes/ellayyo-michislindos.png",
+         ancho: "200px",
+        },
+
+
+    ]
+},
     
 ];
 
