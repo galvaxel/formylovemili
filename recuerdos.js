@@ -1275,7 +1275,52 @@ const recuerdos = [
 
     ]
 },
-    
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-apurado.jpg",
+
+
+    contenido: [
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/cora-diafast.gif",
+         ancho: "80px",
+    },
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/arco-diafast.gif",
+         ancho: "150px",
+    },
+
+
+    {tipo:"texto",
+        subtitulo: true,
+        color: "#d5a9e0", 
+        tamano: "0.99rem",
+        texto: "siento que no te agradecí como corresponde esto, pero gracias por el celu temporal, me encanta ver tus notificaciones en cualquier momento del día",
+    },
+
+
+
+
+
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/png-gato-sincolor.png",
+         ancho: "130px",
+    },
+
+        {tipo:"texto",
+        subtitulo: true,
+        color: "#d5a9e0", 
+        texto: "°❀⋆.ೃ࿔*: te amo mucho mili ₍^. .^₎Ⳋ",
+    },
+
+
+    ]
+},
+
 ];
 
 
