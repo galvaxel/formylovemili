@@ -1279,7 +1279,6 @@ const recuerdos = [
 {   tipo: "combo",
    fondo:"assets/imagenes/fondo-apurado.jpg",
 
-
     contenido: [
 
     {
@@ -1293,17 +1292,12 @@ const recuerdos = [
          ancho: "150px",
     },
 
-
     {tipo:"texto",
         subtitulo: true,
         color: "#d5a9e0", 
         tamano: "0.99rem",
         texto: "siento que no te agradecí como corresponde esto, pero gracias por el celu temporal, me encanta ver tus notificaciones en cualquier momento del día",
     },
-
-
-
-
 
     {
          tipo:"imagen",
@@ -1317,6 +1311,35 @@ const recuerdos = [
         texto: "°❀⋆.ೃ࿔*: te amo mucho mili ₍^. .^₎Ⳋ",
     },
 
+    ]
+},
+
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondito-muycute.jpg",
+
+    contenido: [
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/brillitos-mulindos.gif",
+         ancho: "260px",
+
+    },
+    {
+    tipo: "spotify",
+    url: "https://open.spotify.com/intl-es/track/44alNkXsYnTyPnkMdohBcx?si=2a2f65b3e7af483e",
+    },
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/jajeju-us.png",
+         ancho: "360px",
+    },
+
+        {tipo:"texto",
+        subtitulo: true,
+        color: "#e997b8", 
+        texto: "𑣲 te amo caramelito ʚ♡ɞ",
+    },
 
     ]
 },
