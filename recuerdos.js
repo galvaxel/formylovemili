@@ -1369,7 +1369,45 @@ const recuerdos = [
     ]
 },
 
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-picunicu.jpg",
+
+    contenido: [
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/picnic-solcito.png",
+         ancho: "180px",      
+    },
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/cerezos-flotando.gif",
+  
+    }, 
+        {tipo:"texto",
+        color: "#aa0632d9", 
+        texto: "en el plan de vida que tengo ideado para vos, tenés asegurado COMO MÍNIMO un picnic mensualmente.",
+        tamano: "1.12rem",
+
+    },        
+
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/picnic-jijiabajo.png",
+         ancho: "300px",
+         
+    },
+    {   tipo:"texto",
+        color: "#aa0632d9",
+        tamano: "1.6rem",
+        texto: "te amo mi melocontoncito 𖹭.ᐟ",
+    },  
+
+
+    ]
+},
+
 ];
 
 
-//footer-corazones.gif
+//cerezos-flotando.gif
