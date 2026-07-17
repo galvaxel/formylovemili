@@ -1344,6 +1344,31 @@ const recuerdos = [
     ]
 },
 
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-caba.jpg",
+
+    contenido: [
+        {tipo:"texto",
+        subtitulo: true,
+        color: "#ff0101d9", 
+        texto: "este sueño quiero vivirlo con vos, que me gustaste y enamoraste en todas las maneras posibles,  gracias por convertirte en la persona que más amo en mi vida <3",
+    },        
+
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/selfie-world.jpg",
+         ancho: "130px",
+    },
+
+
+        {
+    tipo: "spotify",
+    url: "https://open.spotify.com/intl-es/track/4mZHvbJWkK9uVmD9SvHKao?si=d831fe6aa5774446",
+    },
+
+    ]
+},
+
 ];
 
 
