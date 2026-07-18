@@ -1406,8 +1406,48 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-equipo-cinna.jpg",
+
+    contenido: [
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/cielo-core-cute.gif",
+        ancho: "262px",
+    },           
+
+        {   tipo:"texto",
+        color: "#e7adfcd9",
+        texto: "millones de estrellas en el cielo y ni todas juntas brillan como tus ojitos",
+                tamano: "1.2rem",
+
+    },     
+
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/equipo-core.png",
+                 ancho: "252px",
+
+    },
+
+            {   tipo:"texto",
+        color: "#ae31b55e",
+                tamano: "1.24rem",
+
+        texto: " ｡ ₊°༺ te amo milagros ༻°₊ ｡ ",
+    },  
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/core-cora-hed.gif",
+        ancho: "452px",
+    },   
+
+
+
+    ]
+},
 
 ];
 
 
-//cerezos-flotando.gif
+//cielo-core-cute.gif
