@@ -1446,6 +1446,43 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-arg-ysisi.jpg",
+
+    contenido: [
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/argy-cut-flag.png",
+         ancho: "50px",
+    },
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/festejospurin-cuarta.gif",
+         ancho: "360px",
+    },           
+
+        {   tipo:"texto",
+        color: "#3cc1ffd9",
+        texto: "más allá del resultado final, el haberte podido ver en estos últimos partidos para mí ya es más importante que cualquier titulo, ese es mi triunfo y mi festejo.",
+                tamano: "1.1rem",
+
+    },     
+
+    {
+         tipo:"imagen",
+         imagen: "assets/imagenes/barrapurin.png",
+                  ancho: "230px",
+
+    },
+            {   tipo:"texto",
+        color: "#3cc1ffd9",
+        texto: "⋆.𐙚 ̊ te amo mili -`𖹭´-",
+                tamano: "1.4rem",
+
+    },  
+
+    ]
+},
 
 ];
 
