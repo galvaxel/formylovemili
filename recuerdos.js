@@ -1528,6 +1528,38 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-casemonos3.jpg",
+
+    contenido: [
+
+            {   tipo:"spotify",
+                url: "https://open.spotify.com/intl-es/track/0SRddBTphQwQcfqw4Br1uX?si=20e960483877455a",
+            },
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/corasones-up.gif",
+         ancho: "250px",
+    },           
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/tortus-us.png",
+    },
+                {   tipo:"texto",
+        color: "#2a7150",
+                subtitulo: true,
+                texto: "verte con tu vestido blanco va a ser la felicidad más grande que voy a tener en mi vida, te amo <3",
+                tamano: "0.85rem",
+
+    },
+
+
+
+    ]
+},
 
 
 ];
