@@ -1483,6 +1483,52 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-compo-ojo.jpg",
+
+    contenido: [
+
+            {   tipo:"texto",
+        color: "#d01a1ad9",
+        subtitulo: true,
+        texto: "sabías que por el resto de nuestras vidas jamás vamos a volver a pasar frío? no va a existir un invierno en el que no estemos juntos para acurrucarnos.",
+                tamano: "1rem",
+
+    },
+            {   tipo:"texto",
+        color: "#e23131d9",
+                subtitulo: true,
+
+        texto: "¿premio o castigo?",
+                tamano: "0.66rem",
+
+    },
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/hearto-pia.gif",
+         ancho: "300px",
+    },           
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/acurrucad-us.png",
+         ancho: "230px",
+    },
+                {   tipo:"texto",
+        color: "#d01a1ad9",
+        subtitulo: true,
+        texto: "✦ te amo mi bonobon de pistacho ᓚ₍ ^. .^₎",
+                tamano: "1.05rem",
+
+    },
+
+
+
+    ]
+},
+
 
 ];
 
