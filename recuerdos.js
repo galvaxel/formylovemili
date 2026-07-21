@@ -1,7 +1,7 @@
 const recuerdos = [
     
 
-    {   tipo: "combo",
+ {   tipo: "combo",
 
     contenido: [
         {
@@ -22,7 +22,7 @@ const recuerdos = [
 
 
     
-    },
+},
 
 {   tipo: "combo",
 

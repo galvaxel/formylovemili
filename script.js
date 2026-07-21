@@ -129,6 +129,8 @@ function centrarHoy(suave = true) {
     });
 }
 
+
+
 function centrarTarjeta(tarjeta, suave = true) {
     if (!tarjeta) return;
 
@@ -156,8 +158,22 @@ function limitarScroll(valor) {
 }
 
 function activarModoDeslizando() {
+    // Si ya está en modo deslizando, no hacemos nada para evitar saltos repetidos
+    if (document.body.classList.contains("modo-deslizando")) return;
+
+    // Cambiamos las clases del body
     document.body.classList.remove("modo-hoy");
     document.body.classList.add("modo-deslizando");
+
+    // Recalculamos la posición del scroll al nuevo layout en modo deslizando
+    const ayer = document.getElementById("ayer");
+    const hoy = document.getElementById("hoy");
+
+    if (ayer) {
+        centrarTarjeta(ayer, false);
+    } else if (hoy) {
+        centrarTarjeta(hoy, false);
+    }
 }
 
 function volverAHoy() {
@@ -451,18 +467,29 @@ carrusel.addEventListener("mousedown", function(e) {
 window.addEventListener("mousemove", function(e) {
     if (!estaArrastrando) return;
 
+if (document.body.classList.contains("modo-hoy")) {
+
     const movimiento = e.pageX - arranqueX;
 
     if (Math.abs(movimiento) > 6) {
         huboArrastre = true;
         activarModoDeslizando();
+
+        scrollArranque = carrusel.scrollLeft;
+        arranqueX = e.pageX;
     }
 
-    let nuevoScroll = scrollArranque - movimiento;
+    return;
+}
 
-    nuevoScroll = limitarScroll(nuevoScroll);
+const movimiento = e.pageX - arranqueX;
 
-    carrusel.scrollLeft = nuevoScroll;
+let nuevoScroll = scrollArranque - movimiento;
+
+nuevoScroll = limitarScroll(nuevoScroll);
+
+carrusel.scrollLeft = nuevoScroll;
+console.log("mousemove", carrusel.scrollLeft);
 
     const ahora = Date.now();
     const diferenciaX = e.pageX - ultimaX;
