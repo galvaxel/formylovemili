@@ -1560,6 +1560,39 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-salvapapas.jpg",
+
+    contenido: [
+
+
+    {
+         tipo:"gif",
+         gif: "assets/imagenes/flor-bonititas.gif",
+         ancho: "180px",
+    },           
+{   tipo:"texto",
+        color: "#703e70",
+                        tamano: "1rem",
+
+                texto: "te gustaría que, en nuestra próxima vida, vos fueras una michi viviendo en el sur y yo el caramelo de menta con el que más te guste jugar?",
+    },
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/gato-fasto.gif",
+    },
+    {   tipo:"texto",
+        color: "#703e70",
+                        tamano: "1.3rem",
+
+                texto: "te amo mi preciosa S2",
+    },
+                
+
+
+
+    ]
+},
 
 
 ];
