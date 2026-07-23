@@ -1607,7 +1607,7 @@ const recuerdos = [
          
          {
             tipo: "spotify",
-            url: "https://open.spotify.com/intl-es/track/07koEqsKHZTlGVMC9eoEjO?si=2bfd40013e6f49c6",
+            url: "https://open.spotify.com/intl-es/track/5pek4R29HVwMaWgzpV64f3?si=fb1f68eb59234810",
          },
 
         {
