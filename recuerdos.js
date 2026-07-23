@@ -1593,7 +1593,35 @@ const recuerdos = [
 
     ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/wallpusheen.gif",
 
+    contenido: [
+
+
+    {
+         tipo:"gif",
+         ancho: "310px",
+        
+         gif: "assets/imagenes/nube-piola.gif",    },  
+         
+         {
+            tipo: "spotify",
+            url: "https://open.spotify.com/intl-es/track/07koEqsKHZTlGVMC9eoEjO?si=2bfd40013e6f49c6",
+         },
+
+        {
+         tipo:"gif",
+         gif: "assets/imagenes/pichu-milk.png",
+         ancho: "269px",
+    },
+    {   tipo:"texto",
+        color: "#ebc91e",
+                        tamano: "1.3rem",
+
+                texto: "₊˚⊹♡ te amo con todo mi corazón ⸜(｡˃ ᵕ ˂ )⸝♡",
+    },  ]
+},
 
 ];
 
