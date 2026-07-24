@@ -1622,6 +1622,60 @@ const recuerdos = [
                 texto: "₊˚⊹♡ te amo con todo mi corazón ⸜(｡˃ ᵕ ˂ )⸝♡",
     },  ]
 },
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-lastvier.jpg",
+
+    contenido: [
+
+
+        {
+         tipo:"imagen",
+         imagen: "assets/imagenes/hearto-chau.png",
+         ancho: "450px",
+    },
+        {   
+        tipo:"texto",
+        color: "#ef6f4c",
+        tamano: "0.94rem",
+        texto: "de todas tus virtudes, tu paciencia para soportar mi forma cargosa y pesada de quererte es la que más valoro, te amo mili ‹𝟹",
+        },
+        {
+         tipo:"gif",
+         ancho: "280px",
+         gif: "assets/imagenes/brillitos-mulindos.gif",
+        },  
+  
+    ]
+},
+{   tipo: "combo",
+   fondo:"assets/imagenes/fondo-paisavicen.jpg",
+
+    contenido: [
+
+
+        {
+         tipo:"spotify",
+         url: "https://open.spotify.com/intl-es/track/76lY4r2aBw8XC9BXJtKz3C?si=5960b102753c487e",
+        },
+        {   
+        tipo:"texto",
+        color: "#4e5a6c",
+        tamano: "1.95rem",
+        texto: "𑣲 te amo mi conejita ݁ ˖Ი𐑼⋆",
+        },
+        {
+         tipo:"gif",
+         ancho: "40px",
+         gif: "assets/imagenes/single-cora-up.gif",
+        },
+        {
+         tipo:"gif",
+         ancho: "180px",
+         gif: "assets/imagenes/conejoides-tristes.gif",
+        },    
+  
+    ]
+},
 
 ];
 
